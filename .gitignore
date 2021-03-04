@@ -1,8 +1,6 @@
 # Custom
 config.json
-cogs/eval.py
 .idea/
-servers/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
