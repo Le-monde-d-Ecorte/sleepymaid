@@ -355,7 +355,7 @@ class Moderator(commands.Cog):
         """ Change the channel slowmode. """
         channel = channel or ctx.channel
         await channel.edit(slowmode_delay=seconds)
-        embed = discord.Embed(description=f"Set the slowmode delay in this channel to {seconds} seconds!", colour=discord.Colour(0x77b255))
+        embed = discord.Embed(description=f"Set the slowmode delay in <#{channel.id}> to {seconds} seconds!", colour=discord.Colour(0x77b255))
         embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
         await ctx.send(embed=embed)
 
