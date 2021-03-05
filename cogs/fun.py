@@ -293,6 +293,14 @@ class Fun_Commands(commands.Cog):
         else:
             await ctx.send(f"{slotmachine} No match, you lost 😢")
 
+    @commands.command()
+    async def slap(self, ctx, user: discord.Member, amount: int = None):
+        """ Slap """
+        if not amount:
+            await ctx.send(f"<@{ctx.author.id}> slapped <@{user.id}>.")
+        else:
+            await ctx.send(f"<@{ctx.author.id}> slapped <@{user.id}> for {amount} damages.")
+
 
 def setup(bot):
     bot.add_cog(Fun_Commands(bot))
