@@ -351,14 +351,25 @@ class Moderator(commands.Cog):
     @commands.command()
     @commands.guild_only()
     @permissions.has_permissions(manage_messages=True)
-    async def slowmode(self, ctx, seconds, channel: discord.TextChannel):
-        """ Change the channel slowmode. """
-        channel = channel or ctx.channel
-        await channel.edit(slowmode_delay=seconds)
-        embed = discord.Embed(description=f"Set the slowmode delay in <#{channel.id}> to {seconds} seconds!", colour=discord.Colour(0x77b255))
-        embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
+    async def slowmode(self, ctx, seconds: int, channel: discord.TextChannel = None):
+        """ Change a channel slowmode. """
+        if not channel:
+            await ctx.channel.edit(slowmode_delay=seconds)
+            if seconds >= 1:
+                embed = discord.Embed(description=f"Set the slowmode delay in this channel to {seconds} seconds!", colour=discord.Colour(0x77b255))
+                embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
+            else:
+                embed = discord.Embed(description="Removed the slowmode in this channel!", colour=discord.Colour(0x77b255))
+                embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
+        else:
+            await channel.edit(slowmode_delay=seconds)
+            if seconds >= 1:
+                embed = discord.Embed(description=f"Set the slowmode delay in <#{channel.id}> to {seconds} seconds!", colour=discord.Colour(0x77b255))
+                embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
+            else:
+                embed = discord.Embed(description=f"Removed the slowmode in <#{channel.id}>!", colour=discord.Colour(0x77b255))
+                embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
         await ctx.send(embed=embed)
-
 
 def setup(bot):
     bot.add_cog(Moderator(bot))
