@@ -366,7 +366,7 @@ class Moderator(commands.Cog):
                     embed = discord.Embed(description=f"Set the slowmode delay in <#{channel.id}> to {seconds} seconds!", colour=discord.Colour(0x77b255))
                 else:
                     embed = discord.Embed(description=f"Removed the slowmode in <#{channel.id}>!", colour=discord.Colour(0x77b255))
-                embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
+            embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
             await ctx.send(embed=embed)
         except:
             await ctx.send("Error")
