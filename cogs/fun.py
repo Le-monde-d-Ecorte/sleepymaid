@@ -5,6 +5,7 @@ import secrets
 import asyncio
 import aiohttp
 import re
+import math
 
 from io import BytesIO
 from discord.ext import commands
@@ -295,16 +296,16 @@ class Fun_Commands(commands.Cog):
 
     @commands.command()
     async def slap(self, ctx, user: discord.Member, amount: int = None):
-        """ Slap """
+        """ Slap asses."""
         if user.id == ctx.author.id:
             target = "Themselves"
         else:
             target = user.mention
 
         if not amount:
-            await ctx.send(f"{ctx.author.mention} slapped {target}.")
+            await ctx.reply(f"{ctx.author.mention} slapped {target}.", mention_author=True)
         else:
-            await ctx.send(f"{ctx.author.mention} slapped {target} for {amount} damage.")
+            await ctx.reply(f"{ctx.author.mention} slapped {target} for {amount} damage.", mention_author=True)
 
 
 def setup(bot):
