@@ -299,7 +299,7 @@ class Fun_Commands(commands.Cog):
         if not amount:
             await ctx.send(f"<@{ctx.author.id}> slapped <@{user.id}>.")
         else:
-            await ctx.send(f"<@{ctx.author.id}> slapped <@{user.id}> for {amount} damages.")
+            await ctx.send(f"<@{ctx.author.id}> slapped <@{user.id}> for {amount} damage.")
 
 
 def setup(bot):
