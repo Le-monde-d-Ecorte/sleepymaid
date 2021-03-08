@@ -296,10 +296,15 @@ class Fun_Commands(commands.Cog):
     @commands.command()
     async def slap(self, ctx, user: discord.Member, amount: int = None):
         """ Slap """
-        if not amount:
-            await ctx.send(f"<@{ctx.author.id}> slapped <@{user.id}>.")
+        if user.id == ctx.author.id:
+            target = "Themselves"
         else:
-            await ctx.send(f"<@{ctx.author.id}> slapped <@{user.id}> for {amount} damage.")
+            target = user.mention
+
+        if not amount:
+            await ctx.send(f"{ctx.author.mention} slapped {target}.")
+        else:
+            await ctx.send(f"{ctx.author.mention} slapped {target} for {amount} damage.")
 
 
 def setup(bot):
