@@ -68,23 +68,23 @@ class Fun_Commands(commands.Cog):
 #        """ Posts a random birb """
 #        await self.randomimageapi(ctx, 'https://api.alexflipnote.dev/birb', 'file', token=self.alex_api_token)
 
-#    @commands.command()
-#    @commands.cooldown(rate=1, per=1.5, type=commands.BucketType.user)
-#    async def duck(self, ctx):
-#        """ Posts a random duck """
-#        await self.randomimageapi(ctx, 'https://random-d.uk/api/v1/random', 'url')
+    @commands.command()
+    @commands.cooldown(rate=1, per=1.5, type=commands.BucketType.user)
+    async def duck(self, ctx):
+        """ Posts a random duck """
+        await self.randomimageapi(ctx, 'https://random-d.uk/api/v1/random', 'url')
 
-#    @commands.command()
-#    @commands.cooldown(rate=1, per=1.5, type=commands.BucketType.user)
-#    async def coffee(self, ctx):
-#        """ Posts a random coffee """
-#        await self.randomimageapi(ctx, 'https://coffee.alexflipnote.dev/random.json', 'file')
+    @commands.command()
+    @commands.cooldown(rate=1, per=1.5, type=commands.BucketType.user)
+    async def coffee(self, ctx):
+        """ Posts a random coffee """
+        await self.randomimageapi(ctx, 'https://coffee.alexflipnote.dev/random.json', 'file')
 
-#    @commands.command(aliases=['flip', 'coin'])
-#    async def coinflip(self, ctx):
-#        """ Coinflip! """
-#        coinsides = ['Heads', 'Tails']
-#        await ctx.send(f"**{ctx.author.name}** flipped a coin and got **{random.choice(coinsides)}**!")
+    @commands.command(aliases=['flip', 'coin'])
+    async def coinflip(self, ctx):
+        """ Coinflip! """
+        coinsides = ['Heads', 'Tails']
+        await ctx.send(f"**{ctx.author.name}** flipped a coin and got **{random.choice(coinsides)}**!")
 
     @commands.command()
     async def f(self, ctx, *, text: commands.clean_content = None):
@@ -266,14 +266,14 @@ class Fun_Commands(commands.Cog):
 
         await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
 
-#    @commands.command(aliases=['noticemesenpai'])
-#    async def noticeme(self, ctx):
-#        """ Notice me senpai! owo """
-#        if not permissions.can_handle(ctx, "attach_files"):
-#            return await ctx.send("I cannot send images here ;-;")
-#
-#        bio = BytesIO(await http.get("https://i.alexflipnote.dev/500ce4.gif", res_method="read"))
-#        await ctx.send(file=discord.File(bio, filename="noticeme.gif"))
+    @commands.command(aliases=['noticemesenpai'])
+    async def noticeme(self, ctx):
+        """ Notice me senpai! owo """
+        if not permissions.can_handle(ctx, "attach_files"):
+            return await ctx.send("I cannot send images here ;-;")
+
+        bio = BytesIO(await http.get("https://i.alexflipnote.dev/500ce4.gif", res_method="read"))
+        await ctx.send(file=discord.File(bio, filename="noticeme.gif"))
 
     @commands.command(aliases=['slots', 'bet'])
     @commands.cooldown(rate=1, per=3.0, type=commands.BucketType.user)
