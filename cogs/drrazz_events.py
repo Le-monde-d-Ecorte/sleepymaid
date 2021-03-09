@@ -13,6 +13,9 @@ class drrazz_events(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         guild = member.guild
+
+        if user.bot:
+            return
         if guild.id == 818313526720462868:
             generalembed = discord.Embed(description=f"Bienvenue {member.mention} sur le serveur de DrraZz_.\nJe te conseil d'aller lire les règle du serveur dans <#818314179508568126>.\nSi tu veux avoir des notifi", colour=discord.Colour(0x36393f))
             generalembed.set_author(name="Nouveau Membre", icon_url="https://cdn.discordapp.com/emojis/612355003151286278.gif")
