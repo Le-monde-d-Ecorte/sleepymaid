@@ -5,6 +5,8 @@ from io import BytesIO
 from utils import default
 from discord.ext import commands
 
+serverid = 818313526720462868
+
 class drrazz_events(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -16,7 +18,7 @@ class drrazz_events(commands.Cog):
 
         if user.bot:
             return
-        if guild.id == 818313526720462868:
+        if guild.id == serverid:
             generalembed = discord.Embed(description=f"Bienvenue {member.mention} sur le serveur de DrraZz_.\nJe te conseil d'aller lire les règle du serveur dans <#818314179508568126>.\nSi tu veux avoir des notification quand <@377944202710876161> va en live sur twitch ou sort une nouvelle vidéo sur youtube va dans <#818474275362963486>.", colour=discord.Colour(0x36393f))
             generalembed.set_author(name="Nouveau Membre", icon_url="https://cdn.discordapp.com/emojis/612355003151286278.gif")
 
