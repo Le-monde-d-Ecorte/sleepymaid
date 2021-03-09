@@ -1,4 +1,4 @@
-discord.py[voice]
+discord.py
 psutil
 timeago==1.0.13
 DiscordUtils
