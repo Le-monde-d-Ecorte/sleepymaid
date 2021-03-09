@@ -29,7 +29,7 @@ class drrazz_events(commands.Cog):
             generalchannel = guild.get_channel(818313526720462870)
             rulechannel = guild.get_channel(818314179508568126)
             await generalchannel.send(embed=generalembed)
-            await rulechannel.send(f"{member.mention} Merci de lire les règlement!", delete_after=10)
+            await rulechannel.send(f"{member.mention} Merci de lire les règlements!", delete_after=10)
 
 def setup(bot):
     bot.add_cog(drrazz_events(bot))
