@@ -16,7 +16,7 @@ class drrazz_events(commands.Cog):
     async def on_member_join(self, member):
         guild = member.guild
 
-        if user.bot:
+        if member.bot:
             return
         if guild.id == serverid:
             generalembed = discord.Embed(description=f"Bienvenue {member.mention} sur le serveur de DrraZz_.\nJe te conseil d'aller lire les règle du serveur dans <#818314179508568126>.\nSi tu veux avoir des notification quand <@377944202710876161> va en live sur twitch ou sort une nouvelle vidéo sur youtube va dans <#818474275362963486>.", colour=discord.Colour(0x36393f))
