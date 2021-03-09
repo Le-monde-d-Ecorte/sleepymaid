@@ -15,7 +15,6 @@ class drrazz_events(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         guild = member.guild
-
         if member.bot:
             return
         if guild.id == serverid:
