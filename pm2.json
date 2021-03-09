@@ -3,7 +3,6 @@
     {
       "name": "sleepymaid",
       "script": "index.py",
-      "interpreter": "python3.7",
     }
   ]
 }
