@@ -265,6 +265,9 @@ class Fun_Commands(commands.Cog):
         if hot > 75:
             emoji = "💞"
 
+        if user == 324281236728053760:
+            hot = 100
+
         await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
 
     @commands.command(aliases=['noticemesenpai'])
