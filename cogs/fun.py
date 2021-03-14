@@ -257,6 +257,9 @@ class Fun_Commands(commands.Cog):
         r = random.randint(1, 100)
         hot = r / 1.17
 
+        if user in self.config["owners"]:
+            hot = 100
+
         emoji = "💔"
         if hot > 25:
             emoji = "❤"
@@ -265,10 +268,7 @@ class Fun_Commands(commands.Cog):
         if hot > 75:
             emoji = "💞"
 
-        if user in self.config["owners"]:
-            await ctx.send(f"**{user.name}** is **100%** hot 💞")
-        else
-            await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
+        await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
 
     @commands.command(aliases=['noticemesenpai'])
     async def noticeme(self, ctx):
