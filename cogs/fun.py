@@ -265,7 +265,7 @@ class Fun_Commands(commands.Cog):
         if hot > 75:
             emoji = "💞"
 
-        if user == 324281236728053760:
+        if user in self.config["owners"]:
             await ctx.send(f"**{user.name}** is **100%** hot 💞")
         else
             await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
