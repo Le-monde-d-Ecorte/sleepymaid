@@ -257,9 +257,6 @@ class Fun_Commands(commands.Cog):
         r = random.randint(1, 100)
         hot = r / 1.17
 
-        if user in self.config["owners"]:
-            hot = 100
-
         emoji = "💔"
         if hot > 25:
             emoji = "❤"
