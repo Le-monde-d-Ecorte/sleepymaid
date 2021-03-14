@@ -266,9 +266,9 @@ class Fun_Commands(commands.Cog):
             emoji = "💞"
 
         if user == 324281236728053760:
-            hot = 100
-
-        await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
+            await ctx.send(f"**{user.name}** is **100%** hot 💞")
+        else
+            await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
 
     @commands.command(aliases=['noticemesenpai'])
     async def noticeme(self, ctx):
