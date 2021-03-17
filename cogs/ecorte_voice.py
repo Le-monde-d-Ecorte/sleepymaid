@@ -7,7 +7,7 @@ from discord.ext import commands
 
 serverid = 324284116021542922
 en_vocal_role = 821725150118150164
-voice_log_channel_id = 821509142518824991
+voice_log_channel_id = 324284116021542922
 
 class ecorte_voice(commands.Cog):
     def __init__(self, bot):
@@ -44,7 +44,7 @@ class ecorte_voice(commands.Cog):
             await member.remove_roles(role)
 
 # Switch de vocal
-        else:
+        elif before.channel != after.channel:
             guild = before.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
