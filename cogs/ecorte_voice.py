@@ -51,9 +51,5 @@ class ecorte_voice(commands.Cog):
             embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has moved from **{before.channel.name}** to **{after.channel.name}**.", color=0x419400)
             await voicelogchannel.send(embed=embed)
 
-    @commands.command()
-    async def yo(self, ctx):
-        await ctx.send(f"yo {ctx.author.mention}")
-
 def setup(bot):
     bot.add_cog(ecorte_voice(bot))
