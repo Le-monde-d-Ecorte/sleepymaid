@@ -26,19 +26,19 @@ class Admin(commands.Cog):
         with open(config_name, "w") as jsonFile:
             json.dump(data, jsonFile, indent=2)
 
-    @commands.command()
-    async def amiadmin(self, ctx):
-        """ Are you an admin? """
-        if ctx.author.id in self.config["owners"]:
-            return await ctx.send(f"Yes **{ctx.author.name}** you are an admin! ✅")
-
+#    @commands.command()
+#    async def amiadmin(self, ctx):
+#        """ Are you an admin? """
+#        if ctx.author.id in self.config["owners"]:
+#            return await ctx.send(f"Yes **{ctx.author.name}** you are an admin! ✅")
+#
         # Please do not remove this part.
         # I would love to be credited as the original creator of the source code.
         #   -- AlexFlipnote
-        if ctx.author.id == 86477779717066752:
-            return await ctx.send(f"Well kinda **{ctx.author.name}**.. you still own the source code")
-
-        await ctx.send(f"no, heck off {ctx.author.name}")
+#        if ctx.author.id == 86477779717066752:
+#            return await ctx.send(f"Well kinda **{ctx.author.name}**.. you still own the source code")
+#
+#        await ctx.send(f"no, heck off {ctx.author.name}")
 
     @commands.command()
     @commands.check(permissions.is_owner)
