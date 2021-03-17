@@ -18,7 +18,8 @@ class ecorte_voice(commands.Cog):
     async def on_voice_state_update(self, member, before, after):
 # Join un vocal
         if before.channel is None and after.channel is not None:
-#            if after.channel.guild.id == serverid:
+            if after.channel.guild.id != serverid:
+                return
             guild = after.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
@@ -32,6 +33,8 @@ class ecorte_voice(commands.Cog):
 
 # leave un vocal
         elif after.channel is None and before.channel is not None:
+            if before.channel.guild.id != serverid:
+                return
             guild = before.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
@@ -45,6 +48,8 @@ class ecorte_voice(commands.Cog):
 
 # Switch de vocal
         elif before.channel != after.channel:
+            if after.channel.guild.id != serverid:
+                return
             guild = before.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
