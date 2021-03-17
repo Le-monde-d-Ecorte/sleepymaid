@@ -4,6 +4,7 @@ import asyncio
 
 from discord.ext import commands
 from utils import permissions, default
+#from modlog import new_modlog_entry
 
 
 # Source: https://github.com/Rapptz/RoboDanny/blob/rewrite/cogs/mod.py
