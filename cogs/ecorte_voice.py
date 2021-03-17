@@ -7,6 +7,7 @@ from discord.ext import commands
 
 serverid = 324284116021542922 # Le monde d'Ecorte
 en_vocal_role = 821791970632400956 # -- vocal -- Le monde d'Ecorte
+dans_un_vocal_role = 784121432811634760 # Dans un vocal Le monde d'Ecorte
 voice_log_channel_id = 821509142518824991 # voice_log Le monde d'Ecorte
 
 class ecorte_voice(commands.Cog):
@@ -28,8 +29,11 @@ class ecorte_voice(commands.Cog):
 
             # give role en vocal
 
-            role = guild.get_role(en_vocal_role)
-            await member.add_roles(role)
+            lignerole = guild.get_role(en_vocal_role)
+            dansunvocalrole = guild.get_role(dans_un_vocal_role)
+            await member.add_roles(lignerole)
+            await member.add_roles(dansunvocalrole)
+
 
 # leave un vocal
         elif after.channel is None and before.channel is not None:
@@ -43,8 +47,10 @@ class ecorte_voice(commands.Cog):
 
             # remove role en vocal
 
-            role = guild.get_role(en_vocal_role)
-            await member.remove_roles(role)
+            lignerole = guild.get_role(en_vocal_role)
+            dansunvocalrole = guild.get_role(dans_un_vocal_role)
+            await member.remove_roles(lignerole)
+            await member.remove_roles(dansunvocalrole)
 
 # Switch de vocal
         elif before.channel != after.channel:
