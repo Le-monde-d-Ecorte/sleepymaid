@@ -6,7 +6,7 @@ from utils import default
 from discord.ext import commands
 
 serverid = 324284116021542922 # Le monde d'Ecorte
-en_vocal_role = 821725150118150164 # test server
+en_vocal_role = 821791970632400956 # -- vocal -- Le monde d'Ecorte
 voice_log_channel_id = 821509142518824991 # voice_log Le monde d'Ecorte
 
 class ecorte_voice(commands.Cog):
