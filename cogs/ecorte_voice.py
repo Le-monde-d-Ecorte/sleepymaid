@@ -5,9 +5,9 @@ from io import BytesIO
 from utils import default
 from discord.ext import commands
 
-serverid = 324284116021542922
-en_vocal_role = 821725150118150164
-voice_log_channel_id = 324284116021542922
+serverid = 324284116021542922 # Le monde d'Ecorte
+en_vocal_role = 821725150118150164 # test server
+voice_log_channel_id = 821509142518824991 # voice_log Le monde d'Ecorte
 
 class ecorte_voice(commands.Cog):
     def __init__(self, bot):
