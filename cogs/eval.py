@@ -7,9 +7,8 @@ class eval(commands.Cog):
 
     @commands.command(pass_context=True, aliases=['exec', 'evaluate'])
     @commands.is_owner()
-    async def eval(self, ctx, *, args):
-        result = exec(args)
-        await ctx.send(f"```{result}```")
+    async def eval(self, ctx, code):
+        await ctx.send(exec(code))
 
 def setup(bot):
     bot.add_cog(eval(bot))
