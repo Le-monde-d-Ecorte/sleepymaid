@@ -12,6 +12,11 @@ class drrazz_events(commands.Cog):
         self.bot = bot
         self.config = default.config()
 
+    def is_in_guild(guild_id):
+    async def predicate(ctx):
+        return ctx.guild and ctx.guild.id == guild_id
+    return commands.check(predicate)
+
     @commands.Cog.listener()
     async def on_member_join(self, member):
         guild = member.guild
@@ -28,6 +33,18 @@ class drrazz_events(commands.Cog):
             rulechannel = guild.get_channel(818314179508568126)
             await generalchannel.send(embed=generalembed)
             await rulechannel.send(f"{member.mention} Merci de lire les règlements!", delete_after=10)
+
+    @commands.command(hidden=True)
+    @commands.guild_only
+    @is_in_guild(818313526720462868)
+    async def twitch(self, ctx):
+        await ctx.reply("Le lien du twitch de DrraZz_: https://www.twitch.tv/drrazz_", mention_author=True)
+
+    @commands.command(hidden=True)
+    @commands.guild_only
+    @is_in_guild(818313526720462868)
+    async def youtube(self, ctx):
+        await ctx.reply("Le lien de la chaine youtube de DrraZz_: https://www.youtube.com/channel/UC-bGc-EQVsAshuL4f4TupeQ", mention_author=True)
 
 def setup(bot):
     bot.add_cog(drrazz_events(bot))
