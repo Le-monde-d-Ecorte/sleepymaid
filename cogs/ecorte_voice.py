@@ -31,8 +31,7 @@ class ecorte_voice(commands.Cog):
 
             lignerole = guild.get_role(en_vocal_role)
             dansunvocalrole = guild.get_role(dans_un_vocal_role)
-            await member.add_roles(lignerole, reason=f"Joined a voice channel. ({after.channel.name})")
-            await member.add_roles(dansunvocalrole, reason=f"Joined a voice channel. ({after.channel.name})")
+            await member.add_roles(lignerole, dansunvocalrole, reason=f"Joined a voice channel. ({after.channel.name})")
 
 
 # leave un vocal
@@ -49,8 +48,7 @@ class ecorte_voice(commands.Cog):
 
             lignerole = guild.get_role(en_vocal_role)
             dansunvocalrole = guild.get_role(dans_un_vocal_role)
-            await member.remove_roles(lignerole, reason=f"Left a voice channel. ({before.channel.name})")
-            await member.remove_roles(dansunvocalrole, reason=f"Left a voice channel. ({before.channel.name})")
+            await member.remove_roles(lignerole, dansunvocalrole, reason=f"Left a voice channel. ({before.channel.name})")
 
 # Switch de vocal
         elif before.channel != after.channel:
