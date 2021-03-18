@@ -49,8 +49,8 @@ class ecorte_voice(commands.Cog):
 
             lignerole = guild.get_role(en_vocal_role)
             dansunvocalrole = guild.get_role(dans_un_vocal_role)
-            await member.remove_roles(lignerole)
-            await member.remove_roles(dansunvocalrole)
+            await member.remove_roles(lignerole, reason="Left a voice channel")
+            await member.remove_roles(dansunvocalrole, reason="Left a voice channel")
 
 # Switch de vocal
         elif before.channel != after.channel:
