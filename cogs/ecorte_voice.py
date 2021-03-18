@@ -8,7 +8,22 @@ from discord.ext import commands
 serverid = 324284116021542922 # Le monde d'Ecorte
 en_vocal_role = 821791970632400956 # -- vocal -- Le monde d'Ecorte
 dans_un_vocal_role = 784121432811634760 # Dans un vocal Le monde d'Ecorte
-voice_log_channel_id = 821509142518824991 # voice_log Le monde d'Ecorte
+voice_log_channel_id = 434861245846519828 # deleted channel Le monde d'Ecorte
+
+in_voice_channel_list = [
+    662113104951377960, # 0 Bureau d'Ecorte
+    816414942474928198, # 1 Staff
+    818300783078146049, # 2 En live
+    809932718820425728, # 3 Valorant
+    485528168401338371, # 4 IRL
+    617339537957453834, # 5 Public 1
+    617339691146018866, # 6 Public 2
+    811002839228219432, # 7 Level 1+
+    815439982273626182, # 8 Level 5+
+    817147513354059877, # 9 Level 20+
+    699722283794563144, # 10 AFK
+    787059609302073344 # 11 Rejoint
+]
 
 class ecorte_voice(commands.Cog):
     def __init__(self, bot):
@@ -17,6 +32,101 @@ class ecorte_voice(commands.Cog):
 
     @commands.Cog.listener()
     async def on_voice_state_update(self, member, before, after):
+
+        class invoice_role:
+            async def add_role(channel):
+                guild = after.channel.guild
+                # Bureau d'Ecorte
+                if channel == in_voice_channel_list[0]:
+                    role = guild.get_role(597479857940725761)
+                    await member.add_roles(role)
+                # Staff
+                if channel == in_voice_channel_list[1]:
+                    role = guild.get_role(822248947166609438)
+                    await member.add_roles(role)
+                # En live
+                if channel == in_voice_channel_list[2]:
+                    role = guild.get_role(822249421592330270)
+                    await member.add_roles(role)
+                # Valorant
+                if channel == in_voice_channel_list[3]:
+                    role = guild.get_role(822250135480041484)
+                    await member.add_roles(role)
+                # IRL
+                if channel == in_voice_channel_list[4]:
+                    role = guild.get_role(822250136268570674)
+                    await member.add_roles(role)
+                # Public 1
+                if channel == in_voice_channel_list[5]:
+                    role = guild.get_role(822250138654867486)
+                    await member.add_roles(role)
+                # Public 2
+                if channel == in_voice_channel_list[6]:
+                    role = guild.get_role(822251710038278154)
+                    await member.add_roles(role)
+                # Level 1+
+                if channel == in_voice_channel_list[7]:
+                    role = guild.get_role(822251715273293866)
+                    await member.add_roles(role)
+                # Level 5+
+                if channel == in_voice_channel_list[8]:
+                    role = guild.get_role(822251718502776833)
+                    await member.add_roles(role)
+                # Level 20+
+                if channel == in_voice_channel_list[9]:
+                    role = guild.get_role(822251721195520020)
+                    await member.add_roles(role)
+                # Level 20+
+                if channel == in_voice_channel_list[10]:
+                    role = guild.get_role(822251724156305448)
+                    await member.add_roles(role)
+            async def remove_role(channel):
+                guild = before.channel.guild
+                # Bureau d'Ecorte
+                if channel == in_voice_channel_list[0]:
+                    role = guild.get_role(597479857940725761)
+                    await member.remove_roles(role)
+                # Staff
+                if channel == in_voice_channel_list[1]:
+                    role = guild.get_role(822248947166609438)
+                    await member.remove_roles(role)
+                # En live
+                if channel == in_voice_channel_list[2]:
+                    role = guild.get_role(822249421592330270)
+                    await member.remove_roles(role)
+                # Valorant
+                if channel == in_voice_channel_list[3]:
+                    role = guild.get_role(822250135480041484)
+                    await member.remove_roles(role)
+                # IRL
+                if channel == in_voice_channel_list[4]:
+                    role = guild.get_role(822250136268570674)
+                    await member.remove_roles(role)
+                # Public 1
+                if channel == in_voice_channel_list[5]:
+                    role = guild.get_role(822250138654867486)
+                    await member.remove_roles(role)
+                # Public 2
+                if channel == in_voice_channel_list[6]:
+                    role = guild.get_role(822251710038278154)
+                    await member.remove_roles(role)
+                # Level 1+
+                if channel == in_voice_channel_list[7]:
+                    role = guild.get_role(822251715273293866)
+                    await member.remove_roles(role)
+                # Level 5+
+                if channel == in_voice_channel_list[8]:
+                    role = guild.get_role(822251718502776833)
+                    await member.remove_roles(role)
+                # Level 20+
+                if channel == in_voice_channel_list[9]:
+                    role = guild.get_role(822251721195520020)
+                    await member.remove_roles(role)
+                # Level 20+
+                if channel == in_voice_channel_list[10]:
+                    role = guild.get_role(822251724156305448)
+                    await member.remove_roles(role)
+
 # Join un vocal
         if before.channel is None and after.channel is not None:
             if after.channel.guild.id != serverid:
@@ -26,6 +136,10 @@ class ecorte_voice(commands.Cog):
 
             embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has joined **{after.channel.name}**.", color=0x419400)
             await voicelogchannel.send(embed=embed)
+
+            # utiliser la class in_voice_role
+
+            await invoice_role.add_role(after.channel.id)
 
             # give role en vocal
 
@@ -44,6 +158,10 @@ class ecorte_voice(commands.Cog):
             embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has left **{before.channel.name}**.", color=0x419400)
             await voicelogchannel.send(embed=embed)
 
+            # utiliser la class in_voice_role
+
+            await invoice_role.remove_role(before.channel.id)
+
             # remove role en vocal
 
             lignerole = guild.get_role(en_vocal_role)
@@ -59,6 +177,14 @@ class ecorte_voice(commands.Cog):
 
             embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has moved from **{before.channel.name}** to **{after.channel.name}**.", color=0x419400)
             await voicelogchannel.send(embed=embed)
+
+            # utiliser la class in_voice_role
+
+            await invoice_role.add_role(after.channel.id)
+            await invoice_role.remove_role(before.channel.id)
+
+#    @commands.command
+#    async def test(self, ctx):
 
 def setup(bot):
     bot.add_cog(ecorte_voice(bot))
