@@ -6,6 +6,11 @@ from io import BytesIO
 from utils import default
 from discord.ext import commands
 
+def return_current_time():
+    time = datetime.datetime.utcnow()
+    return time.strftime('%A, %b %d %H:%M')
+
+
 serverid = 324284116021542922 # Le monde d'Ecorte
 en_vocal_role = 821791970632400956 # -- vocal -- Le monde d'Ecorte
 dans_un_vocal_role = 784121432811634760 # Dans un vocal Le monde d'Ecorte
