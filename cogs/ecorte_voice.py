@@ -76,9 +76,7 @@ class ecorte_voice(commands.Cog):
                 if channel == in_voice_channel_list[10]:
                     role = guild.get_role(822251724156305448)
 
-                lignerole = guild.get_role(en_vocal_role)
-                dansunvocalrole = guild.get_role(dans_un_vocal_role)
-                await member.add_roles(role, lignerole, dansunvocalrole, reason=f"Joined a voice channel. ({after.channel.name})")
+                await member.add_roles(role, reason=f"Joined a voice channel. ({after.channel.name})")
             async def remove_role(channel):
                 guild = before.channel.guild
                 # Bureau d'Ecorte
@@ -115,9 +113,7 @@ class ecorte_voice(commands.Cog):
                 if channel == in_voice_channel_list[10]:
                     role = guild.get_role(822251724156305448)
 
-                lignerole = guild.get_role(en_vocal_role)
-                dansunvocalrole = guild.get_role(dans_un_vocal_role)
-                await member.remove_roles(role, lignerole, dansunvocalrole, reason=f"Left a voice channel. ({before.channel.name})")
+                await member.remove_roles(role, reason=f"Left a voice channel. ({before.channel.name})")
 
         # Join un vocal
         if before.channel is None and after.channel is not None:
@@ -129,6 +125,12 @@ class ecorte_voice(commands.Cog):
             embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has joined **{after.channel.name}**.", color=0x419400)
             embed.set_footer(text=return_current_time())
             await voicelogchannel.send(embed=embed)
+
+            # Invoice role
+
+            lignerole = guild.get_role(en_vocal_role)
+            dansunvocalrole = guild.get_role(dans_un_vocal_role)
+            await member.add_roles(lignerole, dansunvocalrole, reason=f"Joined a voice channel. ({after.channel.name})")
 
             # utiliser la class in_voice_role
 
@@ -144,6 +146,12 @@ class ecorte_voice(commands.Cog):
             embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has left **{before.channel.name}**.", color=0x419400)
             embed.set_footer(text=return_current_time())
             await voicelogchannel.send(embed=embed)
+
+            # Invoice role
+
+            lignerole = guild.get_role(en_vocal_role)
+            dansunvocalrole = guild.get_role(dans_un_vocal_role)
+            await member.remove_roles(lignerole, dansunvocalrole, reason=f"Joined a voice channel. ({after.channel.name})")
 
             # utiliser la class in_voice_role
 
