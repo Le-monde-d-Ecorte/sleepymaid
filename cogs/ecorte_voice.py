@@ -166,8 +166,8 @@ class ecorte_voice(commands.Cog):
 
             # utiliser la class in_voice_role
 
-            await invoice_role.add_role(after.channel.id)
             await invoice_role.remove_role(before.channel.id)
+            await invoice_role.add_role(after.channel.id)
 
 
 def setup(bot):
