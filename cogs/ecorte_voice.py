@@ -120,7 +120,7 @@ class ecorte_voice(commands.Cog):
             guild = after.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
-            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has joined **{after.channel.name}**.", color=0x419400, timestamp=created_at)
+            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has joined **{after.channel.name}**.", color=0x419400, timestamp=embed.created_at)
             await voicelogchannel.send(embed=embed)
 
             # utiliser la class in_voice_role
@@ -134,7 +134,7 @@ class ecorte_voice(commands.Cog):
             guild = before.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
-            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has left **{before.channel.name}**.", color=0x419400, timestamp=created_at)
+            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has left **{before.channel.name}**.", color=0x419400, timestamp=embed.created_at)
             await voicelogchannel.send(embed=embed)
 
             # utiliser la class in_voice_role
@@ -152,7 +152,7 @@ class ecorte_voice(commands.Cog):
             guild = before.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
-            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has moved from **{before.channel.name}** to **{after.channel.name}**.", color=0x419400, timestamp=created_at)
+            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has moved from **{before.channel.name}** to **{after.channel.name}**.", color=0x419400, timestamp=embed.created_at)
             await voicelogchannel.send(embed=embed)
 
             # utiliser la class in_voice_role
