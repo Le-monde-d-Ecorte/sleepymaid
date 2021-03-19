@@ -8,7 +8,7 @@ from discord.ext import commands
 serverid = 324284116021542922 # Le monde d'Ecorte
 en_vocal_role = 821791970632400956 # -- vocal -- Le monde d'Ecorte
 dans_un_vocal_role = 784121432811634760 # Dans un vocal Le monde d'Ecorte
-voice_log_channel_id = 434861245846519828 # deleted channel Le monde d'Ecorte
+voice_log_channel_id = 821509142518824991 # voice_logs Le monde d'Ecorte
 
 in_voice_channel_list = [
     662113104951377960, # 0 Bureau d'Ecorte
