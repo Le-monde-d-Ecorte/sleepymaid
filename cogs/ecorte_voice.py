@@ -160,8 +160,6 @@ class ecorte_voice(commands.Cog):
             await invoice_role.add_role(after.channel.id)
             await invoice_role.remove_role(before.channel.id)
 
-#    @commands.command
-#    async def test(self, ctx):
 
 def setup(bot):
     bot.add_cog(ecorte_voice(bot))
