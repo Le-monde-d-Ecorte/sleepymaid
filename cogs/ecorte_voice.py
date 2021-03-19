@@ -39,93 +39,73 @@ class ecorte_voice(commands.Cog):
                 # Bureau d'Ecorte
                 if channel == in_voice_channel_list[0]:
                     role = guild.get_role(597479857940725761)
-                    await member.add_roles(role)
                 # Staff
                 if channel == in_voice_channel_list[1]:
                     role = guild.get_role(822248947166609438)
-                    await member.add_roles(role)
                 # En live
                 if channel == in_voice_channel_list[2]:
                     role = guild.get_role(822249421592330270)
-                    await member.add_roles(role)
                 # Valorant
                 if channel == in_voice_channel_list[3]:
                     role = guild.get_role(822250135480041484)
-                    await member.add_roles(role)
                 # IRL
                 if channel == in_voice_channel_list[4]:
                     role = guild.get_role(822250136268570674)
-                    await member.add_roles(role)
                 # Public 1
                 if channel == in_voice_channel_list[5]:
-                    role = guild.get_role(822250138654867486)
-                    await member.add_roles(role)
+                    role = guild.get_role(822250138654867486))
                 # Public 2
                 if channel == in_voice_channel_list[6]:
                     role = guild.get_role(822251710038278154)
-                    await member.add_roles(role)
                 # Level 1+
                 if channel == in_voice_channel_list[7]:
                     role = guild.get_role(822251715273293866)
-                    await member.add_roles(role)
                 # Level 5+
                 if channel == in_voice_channel_list[8]:
                     role = guild.get_role(822251718502776833)
-                    await member.add_roles(role)
                 # Level 20+
                 if channel == in_voice_channel_list[9]:
                     role = guild.get_role(822251721195520020)
-                    await member.add_roles(role)
                 # Level 20+
                 if channel == in_voice_channel_list[10]:
                     role = guild.get_role(822251724156305448)
-                    await member.add_roles(role)
+                await member.add_roles(role)
             async def remove_role(channel):
                 guild = before.channel.guild
                 # Bureau d'Ecorte
                 if channel == in_voice_channel_list[0]:
                     role = guild.get_role(597479857940725761)
-                    await member.remove_roles(role)
                 # Staff
                 if channel == in_voice_channel_list[1]:
                     role = guild.get_role(822248947166609438)
-                    await member.remove_roles(role)
                 # En live
                 if channel == in_voice_channel_list[2]:
                     role = guild.get_role(822249421592330270)
-                    await member.remove_roles(role)
                 # Valorant
                 if channel == in_voice_channel_list[3]:
                     role = guild.get_role(822250135480041484)
-                    await member.remove_roles(role)
                 # IRL
                 if channel == in_voice_channel_list[4]:
                     role = guild.get_role(822250136268570674)
-                    await member.remove_roles(role)
                 # Public 1
                 if channel == in_voice_channel_list[5]:
                     role = guild.get_role(822250138654867486)
-                    await member.remove_roles(role)
                 # Public 2
                 if channel == in_voice_channel_list[6]:
                     role = guild.get_role(822251710038278154)
-                    await member.remove_roles(role)
                 # Level 1+
                 if channel == in_voice_channel_list[7]:
                     role = guild.get_role(822251715273293866)
-                    await member.remove_roles(role)
                 # Level 5+
                 if channel == in_voice_channel_list[8]:
                     role = guild.get_role(822251718502776833)
-                    await member.remove_roles(role)
                 # Level 20+
                 if channel == in_voice_channel_list[9]:
                     role = guild.get_role(822251721195520020)
-                    await member.remove_roles(role)
                 # Level 20+
                 if channel == in_voice_channel_list[10]:
                     role = guild.get_role(822251724156305448)
-                    await member.remove_roles(role)
+                await member.remove_roles(role)
 
 # Join un vocal
         if before.channel is None and after.channel is not None:
