@@ -37,12 +37,12 @@ class drrazz_events(commands.Cog):
     @commands.command(hidden=True)
     @is_in_guild(818313526720462868)
     async def twitch(self, ctx):
-        await ctx.reply("Voici le lien du twitch de DrraZz_: <https://www.twitch.tv/drrazz_>", mention_author=True)
+        await ctx.reply("<:twitch:818473720288378980> Voici le lien du twitch de DrraZz_: <https://www.twitch.tv/drrazz_>", mention_author=True)
 
     @commands.command(hidden=True)
     @is_in_guild(818313526720462868)
     async def youtube(self, ctx):
-        await ctx.reply("Voici le lien de la chaine youtube de DrraZz_: <https://www.youtube.com/channel/UC-bGc-EQVsAshuL4f4TupeQ>", mention_author=True)
+        await ctx.reply("<:youtube:818473733785649183> Voici le lien de la chaine youtube de DrraZz_: <https://www.youtube.com/channel/UC-bGc-EQVsAshuL4f4TupeQ>", mention_author=True)
 
 def setup(bot):
     bot.add_cog(drrazz_events(bot))
