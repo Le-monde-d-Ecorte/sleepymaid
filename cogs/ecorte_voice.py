@@ -69,7 +69,10 @@ class ecorte_voice(commands.Cog):
                 # Level 20+
                 if channel == in_voice_channel_list[10]:
                     role = guild.get_role(822251724156305448)
-                await member.add_roles(role)
+
+                lignerole = guild.get_role(en_vocal_role)
+                dansunvocalrole = guild.get_role(dans_un_vocal_role)
+                await member.add_roles(role, lignerole, dansunvocalrole, reason=f"Joined a voice channel. ({after.channel.name})")
             async def remove_role(channel):
                 guild = before.channel.guild
                 # Bureau d'Ecorte
@@ -105,7 +108,10 @@ class ecorte_voice(commands.Cog):
                 # Level 20+
                 if channel == in_voice_channel_list[10]:
                     role = guild.get_role(822251724156305448)
-                await member.remove_roles(role)
+
+                lignerole = guild.get_role(en_vocal_role)
+                dansunvocalrole = guild.get_role(dans_un_vocal_role)
+                await member.remove_roles(role, lignerole, dansunvocalrole, reason=f"Left a voice channel. ({before.channel.name})")
 
 # Join un vocal
         if before.channel is None and after.channel is not None:
@@ -120,13 +126,6 @@ class ecorte_voice(commands.Cog):
             # utiliser la class in_voice_role
 
             await invoice_role.add_role(after.channel.id)
-
-            # give role en vocal
-
-            lignerole = guild.get_role(en_vocal_role)
-            dansunvocalrole = guild.get_role(dans_un_vocal_role)
-            await member.add_roles(lignerole, dansunvocalrole, reason=f"Joined a voice channel. ({after.channel.name})")
-
 
 # leave un vocal
         elif after.channel is None and before.channel is not None:
@@ -144,9 +143,7 @@ class ecorte_voice(commands.Cog):
 
             # remove role en vocal
 
-            lignerole = guild.get_role(en_vocal_role)
-            dansunvocalrole = guild.get_role(dans_un_vocal_role)
-            await member.remove_roles(lignerole, dansunvocalrole, reason=f"Left a voice channel. ({before.channel.name})")
+
 
 # Switch de vocal
         elif before.channel != after.channel:
