@@ -113,28 +113,28 @@ class ecorte_voice(commands.Cog):
                 dansunvocalrole = guild.get_role(dans_un_vocal_role)
                 await member.remove_roles(role, lignerole, dansunvocalrole, reason=f"Left a voice channel. ({before.channel.name})")
 
-# Join un vocal
+        # Join un vocal
         if before.channel is None and after.channel is not None:
             if after.channel.guild.id != serverid:
                 return
             guild = after.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
-            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has joined **{after.channel.name}**.", color=0x419400)
+            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has joined **{after.channel.name}**.", color=0x419400, timestamp=datetime.datetime.utcnow())
             await voicelogchannel.send(embed=embed)
 
             # utiliser la class in_voice_role
 
             await invoice_role.add_role(after.channel.id)
 
-# leave un vocal
+        # leave un vocal
         elif after.channel is None and before.channel is not None:
             if before.channel.guild.id != serverid:
                 return
             guild = before.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
-            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has left **{before.channel.name}**.", color=0x419400)
+            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has left **{before.channel.name}**.", color=0x419400, timestamp=datetime.datetime.utcnow())
             await voicelogchannel.send(embed=embed)
 
             # utiliser la class in_voice_role
@@ -145,14 +145,14 @@ class ecorte_voice(commands.Cog):
 
 
 
-# Switch de vocal
+        # Switch de vocal
         elif before.channel != after.channel:
             if after.channel.guild.id != serverid:
                 return
             guild = before.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
-            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has moved from **{before.channel.name}** to **{after.channel.name}**.", color=0x419400)
+            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has moved from **{before.channel.name}** to **{after.channel.name}**.", color=0x419400, timestamp=datetime.datetime.utcnow())
             await voicelogchannel.send(embed=embed)
 
             # utiliser la class in_voice_role
