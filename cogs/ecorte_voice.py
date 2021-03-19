@@ -53,7 +53,7 @@ class ecorte_voice(commands.Cog):
                     role = guild.get_role(822250136268570674)
                 # Public 1
                 if channel == in_voice_channel_list[5]:
-                    role = guild.get_role(822250138654867486))
+                    role = guild.get_role(822250138654867486)
                 # Public 2
                 if channel == in_voice_channel_list[6]:
                     role = guild.get_role(822251710038278154)
