@@ -151,7 +151,7 @@ class ecorte_voice(commands.Cog):
 
             lignerole = guild.get_role(en_vocal_role)
             dansunvocalrole = guild.get_role(dans_un_vocal_role)
-            await member.remove_roles(lignerole, dansunvocalrole, reason=f"Joined a voice channel. ({after.channel.name})")
+            await member.remove_roles(lignerole, dansunvocalrole, reason=f"Left a voice channel. ({before.channel.name})")
 
             # utiliser la class in_voice_role
 
