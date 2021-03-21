@@ -27,7 +27,7 @@ class ecorte(commands.Cog):
             embed.set_author(name="Rôle Rainbow", icon_url="https://media.discordapp.net/attachments/811959848921071636/822598144968884314/baa392758f065fa770e3a9063f91d33a.png")
             await ctx.send(embed=embed)
         else:
-            ctx.send("Tu doit avoir le rôle Rainbow.")
+            await ctx.send("Tu doit avoir le rôle Rainbow.")
 
 def setup(bot):
     bot.add_cog(ecorte(bot))
