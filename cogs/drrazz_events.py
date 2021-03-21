@@ -1,5 +1,4 @@
 import discord
-import discord.utils
 
 from io import BytesIO
 from utils import default
