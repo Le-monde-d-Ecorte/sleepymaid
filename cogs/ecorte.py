@@ -53,5 +53,17 @@ class ecorte(commands.Cog):
             await user.remove_roles(userrole, infoligne, autreligne, lvlligne, reason=f"Manually got un-verified by {ctx.author.name}#{ctx.author.discriminator}")
             await ctx.reply(":white_check_mark: Done!", mention_author=False)
 
+    @commands.command(hidden=True)
+    @is_in_guild(324284116021542922)
+    async def noexp(self, ctx):
+        membrerole = ctx.guild.get_role(823227863284449352)
+        noexprole = ctx.guild.get_role(823229487974055957)
+        if ctx.channel != 796886716719562762:
+            await ctx.reply(":x: Wrong channel.", mention_author=False)
+        if membrerole in ctx.author.roles:
+            await ctx.author.add_roles(noexprole)
+            await ctx.author.remove_roles(membrerole)
+            await ctx.reply(":white_check_mark: Done!", mention_author=False)
+
 def setup(bot):
     bot.add_cog(ecorte(bot))
