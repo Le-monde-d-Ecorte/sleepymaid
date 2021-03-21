@@ -29,5 +29,29 @@ class ecorte(commands.Cog):
         else:
             await ctx.send("Tu doit avoir le rôle Rainbow.")
 
+    @commands.command(hidden=True, aliases=['v'])
+    @is_in_guild(324284116021542922)
+    async def verify(self, ctx, user: discord.Member):
+        staffrole = ctx.guild.get_role(797649257938419763)
+        if staffrole in ctx.author.roles:
+            userrole = ctx.guild.get_role(614126210422800404)
+            infoligne = ctx.guild.get_role(784120538896531456)
+            autreligne = ctx.guild.get_role(788167400096792577)
+            lvlligne = ctx.guild.get_role(823226227224477717)
+            await user.add_roles(userrole, infoligne, autreligne, lvlligne, reason=f"Manually got verified by {ctx.author.name}#{ctx.author.discriminator}")
+            await ctx.reply(":white_check_mark: Done!", mention_author=False)
+
+    @commands.command(hidden=True, aliases=['uv'])
+    @is_in_guild(324284116021542922)
+    async def unverify(self, ctx, user: discord.Member):
+        staffrole = ctx.guild.get_role(797649257938419763)
+        if staffrole in ctx.author.roles:
+            userrole = ctx.guild.get_role(614126210422800404)
+            infoligne = ctx.guild.get_role(784120538896531456)
+            autreligne = ctx.guild.get_role(788167400096792577)
+            lvlligne = ctx.guild.get_role(823226227224477717)
+            await user.remove_roles(userrole, infoligne, autreligne, lvlligne, reason=f"Manually got un-verified by {ctx.author.name}#{ctx.author.discriminator}")
+            await ctx.reply(":white_check_mark: Done!", mention_author=False)
+
 def setup(bot):
     bot.add_cog(ecorte(bot))
