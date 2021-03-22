@@ -32,7 +32,7 @@ class ecorte(commands.Cog):
     @commands.command(hidden=True, aliases=['v'])
     @is_in_guild(324284116021542922)
     async def verify(self, ctx, user: discord.Member):
-        staffrole = ctx.guild.get_role(797649257938419763)
+        staffrole = ctx.guild.get_role(797650029278920714)
         if staffrole in ctx.author.roles:
             userrole = ctx.guild.get_role(614126210422800404)
             infoligne = ctx.guild.get_role(784120538896531456)
@@ -44,7 +44,7 @@ class ecorte(commands.Cog):
     @commands.command(hidden=True, aliases=['uv'])
     @is_in_guild(324284116021542922)
     async def unverify(self, ctx, user: discord.Member):
-        staffrole = ctx.guild.get_role(797649257938419763)
+        staffrole = ctx.guild.get_role(797650029278920714)
         if staffrole in ctx.author.roles:
             userrole = ctx.guild.get_role(614126210422800404)
             infoligne = ctx.guild.get_role(784120538896531456)
