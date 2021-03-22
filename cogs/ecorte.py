@@ -69,9 +69,9 @@ class ecorte(commands.Cog):
     @is_in_guild(324284116021542922)
     async def approve(self, ctx, member: discord.Member):
         staffrole = ctx.guild.get_role(797650029278920714)
-        approvedrole = ctx.guild.get_role(823691168982237185)
         if staffrole in ctx.author.roles:
-            await member.add_roles(approvedrole, reason=f"Manually got approved by {ctx.author.name}#{ctx.author.discriminator})
+            approvedrole = ctx.guild.get_role(823691168982237185)
+            await member.add_roles(approvedrole, reason=f"Manually got approved by {ctx.author.name}#{ctx.author.discriminator}")
             await ctx.reply(":white_check_mark: Done!", mention_author=False)
 
 def setup(bot):
