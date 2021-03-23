@@ -34,6 +34,8 @@ class ecorte_janitor(commands.Cog):
         for index, role in enumerate(member_roles):
             if role.name.lower() == 'nouveau':
                 has_nouveau = True
+            elif role.name.lower() == 'membres'
+                has_membres = True
             elif role.name.lower() == 'no-exp':
                 has_noexp = True
             elif role.name.lower() in ['actif', 'normal', 'habituer', 'addicte', 'insomniaque', 'pas de vie']:
