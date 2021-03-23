@@ -157,10 +157,6 @@ class ecorte_voice(commands.Cog):
 
             await invoice_role.remove_role(before.channel.id)
 
-            # remove role en vocal
-
-
-
         # Switch de vocal
         elif before.channel != after.channel:
             if after.channel.guild.id != serverid:
