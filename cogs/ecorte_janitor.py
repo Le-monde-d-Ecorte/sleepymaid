@@ -49,7 +49,7 @@ class ecorte_janitor(commands.Cog):
             await member.remove_roles(nouveau_role)
             await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à un rôle plus haut.")
         if has_noexp and has_nouveau:
-            await member.remove_roles(nouveaux_role)
+            await member.remove_roles(nouveau_role)
 
 def setup(bot):
     bot.add_cog(ecorte_janitor(bot))
