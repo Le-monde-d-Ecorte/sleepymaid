@@ -23,8 +23,8 @@ class ecorte_janitor(commands.Cog):
             return
         if message.author.bot:
             return
-        nouveau_role = message.guild.get_role(614126210422800404)
-        membres_role = message.guild.get_role(823227863284449352)
+        nouveau_role = guild.get_role(614126210422800404)
+        membres_role = guild.get_role(823227863284449352)
         has_nouveau = False
         has_membres = False
         has_level_role = False
@@ -43,13 +43,13 @@ class ecorte_janitor(commands.Cog):
             elif role.name.lower() in ['irl', 'ancien staff', 'staff en pause']:
                 has_other_acces_role = True
         if has_membres and has_nouveau:
-            await message.author.remove_roles(nouveau_role)
-            await message.channel.send(f"L'utilisateur <@{message.author.id}> a level up de Nouveaux à Membres.")
+            await member.remove_roles(nouveau_role)
+            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à Membres.")
         if has_level_role and has_nouveau:
-            await message.author.remove_roles(nouveau_role)
-            await message.channel.send(f"L'utilisateur <@{message.author.id}> a level up de Nouveaux à un rôle plus haut.")
+            await member.remove_roles(nouveau_role)
+            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à un rôle plus haut.")
         if has_noexp and has_nouveau:
-            await message.author.remove_roles(nouveaux_role)
+            await member.remove_roles(nouveaux_role)
 
 def setup(bot):
     bot.add_cog(ecorte_janitor(bot))
