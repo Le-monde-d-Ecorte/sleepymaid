@@ -56,12 +56,13 @@ class ecorte(commands.Cog):
         noexprole = ctx.guild.get_role(823229487974055957)
         if ctx.channel != 796886716719562762:
             await ctx.reply(":x: Mauvais channel. Va dans <#796886716719562762>.", mention_author=False)
-        if membrerole in ctx.author.roles:
-            await ctx.author.add_roles(noexprole)
-            await ctx.author.remove_roles(membrerole)
-            await ctx.reply(":white_check_mark: Done!", mention_author=False)
         else:
-            await ctx.reply(":x: Tu doit avoir le rôle **Membres**.")
+            if membrerole in ctx.author.roles:
+                await ctx.author.add_roles(noexprole)
+                await ctx.author.remove_roles(membrerole)
+                await ctx.reply(":white_check_mark: Done!", mention_author=False)
+            else:
+                await ctx.reply(":x: Tu doit avoir le rôle **Membres**.")
 
     @commands.command(hidden=True, aliases=['ap'])
     @is_in_guild(324284116021542922)
