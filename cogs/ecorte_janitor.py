@@ -3,6 +3,8 @@ import discord
 from utils import default
 from discord.ext import commands
 
+guild_id = 324284116021542922
+
 class ecorte_janitor(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -17,7 +19,7 @@ class ecorte_janitor(commands.Cog):
     async def on_message(self, message):
         guild = message.guild
         member = message.author
-        if guild.id != 324284116021542922:
+        if guild.id != guild_id:
             return
         if isinstance(message.channel, discord.DMChannel):
             return
