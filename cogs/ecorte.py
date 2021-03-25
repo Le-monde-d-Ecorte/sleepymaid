@@ -35,10 +35,8 @@ class ecorte(commands.Cog):
         staffrole = ctx.guild.get_role(797650029278920714)
         if staffrole in ctx.author.roles:
             userrole = ctx.guild.get_role(614126210422800404)
-            infoligne = ctx.guild.get_role(784120538896531456)
             autreligne = ctx.guild.get_role(788167400096792577)
-            lvlligne = ctx.guild.get_role(823226227224477717)
-            await user.add_roles(userrole, infoligne, autreligne, lvlligne, reason=f"Manually got verified by {ctx.author.name}#{ctx.author.discriminator}")
+            await user.add_roles(userrole, autreligne, reason=f"Manually got verified by {ctx.author.name}#{ctx.author.discriminator}")
             await ctx.reply(":white_check_mark: Done!", mention_author=False)
 
     @commands.command(hidden=True, aliases=['uv'])
@@ -47,10 +45,8 @@ class ecorte(commands.Cog):
         staffrole = ctx.guild.get_role(797650029278920714)
         if staffrole in ctx.author.roles:
             userrole = ctx.guild.get_role(614126210422800404)
-            infoligne = ctx.guild.get_role(784120538896531456)
             autreligne = ctx.guild.get_role(788167400096792577)
-            lvlligne = ctx.guild.get_role(823226227224477717)
-            await user.remove_roles(userrole, infoligne, autreligne, lvlligne, reason=f"Manually got un-verified by {ctx.author.name}#{ctx.author.discriminator}")
+            await user.remove_roles(userrole, autreligne, reason=f"Manually got un-verified by {ctx.author.name}#{ctx.author.discriminator}")
             await ctx.reply(":white_check_mark: Done!", mention_author=False)
 
     @commands.command(hidden=True)
