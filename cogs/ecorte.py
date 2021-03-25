@@ -60,6 +60,8 @@ class ecorte(commands.Cog):
             await ctx.author.add_roles(noexprole)
             await ctx.author.remove_roles(membrerole)
             await ctx.reply(":white_check_mark: Done!", mention_author=False)
+        else:
+            await ctx.reply(":x: Tu doit avoir le rôle ``Membres``.")
 
     @commands.command(hidden=True, aliases=['ap'])
     @is_in_guild(324284116021542922)
