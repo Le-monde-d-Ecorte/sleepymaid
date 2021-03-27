@@ -60,7 +60,7 @@ class ecorte(commands.Cog):
             if membrerole in ctx.author.roles:
                 await ctx.author.add_roles(noexprole)
                 await ctx.author.remove_roles(membrerole)
-                await ctx.reply(":white_check_mark: Done!", mention_author=False)
+                await ctx.reply("> :white_check_mark: Done!", mention_author=False)
             else:
                 await ctx.reply(":x: Tu doit avoir le rôle **Membres**.")
 
