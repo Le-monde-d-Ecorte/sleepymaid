@@ -46,11 +46,9 @@ class ecorte_janitor(commands.Cog):
                 has_other_acces_role = True
         if has_membres and has_nouveau:
             await member.remove_roles(nouveau_role)
-            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à Membres.")
 #            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à Membres.")
         if has_level_role and has_nouveau:
             await member.remove_roles(nouveau_role)
-            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à un rôle plus haut.")
 #            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à un rôle plus haut.")
         if has_noexp and has_nouveau:
             await member.remove_roles(nouveau_role)
