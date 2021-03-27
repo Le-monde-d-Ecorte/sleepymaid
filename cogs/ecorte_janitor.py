@@ -19,9 +19,9 @@ class ecorte_janitor(commands.Cog):
     async def on_message(self, message):
         guild = message.guild
         member = message.author
-        if message.guild.id != guild_id:
-            return
         if isinstance(message.channel, discord.DMChannel):
+            return
+        if message.guild.id != guild_id:
             return
         if message.author.bot:
             return
