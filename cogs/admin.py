@@ -134,6 +134,7 @@ class Admin(commands.Cog):
     @commands.group()
     @commands.check(permissions.is_owner)
     async def change(self, ctx):
+        """ Change something. """
         if ctx.invoked_subcommand is None:
             await ctx.send_help(str(ctx.command))
 
