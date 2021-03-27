@@ -55,7 +55,7 @@ class ecorte(commands.Cog):
         membrerole = ctx.guild.get_role(823227863284449352)
         noexprole = ctx.guild.get_role(823229487974055957)
         if ctx.channel != 796886716719562762:
-            await ctx.reply(":x: Mauvais channel. Va dans <#796886716719562762>.", mention_author=False)
+            await ctx.reply("> :x: Mauvais channel. Va dans <#796886716719562762>.", mention_author=False)
         else:
             if membrerole in ctx.author.roles:
                 await ctx.author.add_roles(noexprole)
