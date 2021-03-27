@@ -12,6 +12,7 @@ class Utils(commands.Cog):
 
     @commands.command()
     async def pronoun(self, ctx, user: discord.Member = None):
+        """ See your prounouns or someone pronouns. (Powered by pronoundb.org) """
         good_version = {
             "unspecified": "Unspecified",
             "hh": "He/Him",
