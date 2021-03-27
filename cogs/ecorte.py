@@ -37,7 +37,7 @@ class ecorte(commands.Cog):
             userrole = ctx.guild.get_role(614126210422800404)
             autreligne = ctx.guild.get_role(788167400096792577)
             await user.add_roles(userrole, autreligne, reason=f"Manually got verified by {ctx.author.name}#{ctx.author.discriminator}")
-            await ctx.reply(":white_check_mark: Done!", mention_author=False)
+            await ctx.reply("> :white_check_mark: Done!", mention_author=False)
 
     @commands.command(hidden=True, aliases=['uv'])
     @is_in_guild(324284116021542922)
