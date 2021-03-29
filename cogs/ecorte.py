@@ -4,7 +4,7 @@ import random
 from utils import default
 from discord.ext import commands
 
-class ecorte(commands.Cog):
+class Ecorte(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.config = default.config()
@@ -71,7 +71,7 @@ class ecorte(commands.Cog):
     @commands.command(aliases=['ap'])
     @is_in_guild(324284116021542922)
     async def approve(self, ctx, member: discord.Member):
-        """ Approuver un membres. """
+        """ Approuver un membres. (Mod only)"""
         staffrole = ctx.guild.get_role(797650029278920714)
         if staffrole in ctx.author.roles:
             approvedrole = ctx.guild.get_role(823691168982237185)
@@ -79,4 +79,4 @@ class ecorte(commands.Cog):
             await ctx.reply("> :white_check_mark: Done!", mention_author=False)
 
 def setup(bot):
-    bot.add_cog(ecorte(bot))
+    bot.add_cog(Ecorte(bot))
