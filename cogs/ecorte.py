@@ -71,6 +71,7 @@ class ecorte(commands.Cog):
     @commands.command(aliases=['ap'])
     @is_in_guild(324284116021542922)
     async def approve(self, ctx, member: discord.Member):
+        """ Approuver un membres. """
         staffrole = ctx.guild.get_role(797650029278920714)
         if staffrole in ctx.author.roles:
             approvedrole = ctx.guild.get_role(823691168982237185)
