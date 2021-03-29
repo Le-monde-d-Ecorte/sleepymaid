@@ -14,7 +14,7 @@ class ecorte(commands.Cog):
             return ctx.guild and ctx.guild.id == guild_id
         return commands.check(predicate)
 
-    @commands.command(hidden=True, aliases=['vc', 'vraimentcouleur', 'rb'])
+    @commands.command(hidden=True, aliases=['rb'])
     @commands.cooldown(1, 300, commands.BucketType.guild)
     @is_in_guild(324284116021542922)
     async def rainbow(self, ctx):
