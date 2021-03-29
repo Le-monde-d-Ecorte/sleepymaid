@@ -23,10 +23,10 @@ class Information(commands.Cog):
         ping = (time.monotonic() - before) * 1000
         await message.edit(content=f"🏓 WS: {before_ws}ms  |  REST: {int(ping)}ms")
 
-    @commands.command(aliases=['joinme', 'botinvite'])
-    async def invite(self, ctx):
-        """ Invite me to your server """
-        await ctx.send(f"**{ctx.author.name}**, use this URL to invite me\n<{discord.utils.oauth_url(self.bot.user.id)}>")
+#    @commands.command(aliases=['joinme', 'botinvite'])
+#    async def invite(self, ctx):
+#        """ Invite me to your server """
+#        await ctx.send(f"**{ctx.author.name}**, use this URL to invite me\n<{discord.utils.oauth_url(self.bot.user.id)}>")
 
     @commands.command()
     async def source(self, ctx):
