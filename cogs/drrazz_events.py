@@ -33,14 +33,16 @@ class drrazz_events(commands.Cog):
             await generalchannel.send(embed=generalembed)
             await rulechannel.send(f"{member.mention} Merci de lire les règlements!", delete_after=10)
 
-    @commands.command(hidden=True)
+    @commands.command()
     @is_in_guild(818313526720462868)
     async def twitch(self, ctx):
+        """ Montre le lien de la chaine twitch de DrraZz_. """
         await ctx.reply("<:twitch:818473720288378980> Voici le lien du twitch de DrraZz_: <https://www.twitch.tv/drrazz_>", mention_author=True)
 
-    @commands.command(hidden=True)
+    @commands.command()
     @is_in_guild(818313526720462868)
     async def youtube(self, ctx):
+        """ Montre le lien de la chaine youtube de DrraZz_. """
         await ctx.reply("<:youtube:818473733785649183> Voici le lien de la chaine youtube de DrraZz_: <https://www.youtube.com/channel/UC-bGc-EQVsAshuL4f4TupeQ>", mention_author=True)
 
 def setup(bot):
