@@ -30,7 +30,7 @@ class ecorte(commands.Cog):
         else:
             await ctx.send("> :x: Tu doit avoir le rôle **Rainbow**.\n > Pour avoir le rôle tu doit soit avoir le rôle **Addicte** ou le rôle **No-EXP**.\n > Si tu a un de ces rôles va dans <#796886716719562762> et tape **-role rainbow**.")
 
-    @commands.command(hidden=True, aliases=['v'])
+    @commands.command(aliases=['v'])
     @is_in_guild(324284116021542922)
     async def verify(self, ctx, user: discord.Member):
         staffrole = ctx.guild.get_role(797650029278920714)
