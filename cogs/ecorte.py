@@ -55,6 +55,7 @@ class ecorte(commands.Cog):
     @commands.command()
     @is_in_guild(324284116021542922)
     async def noexp(self, ctx):
+        """ Se give le rôle No-EXP. """
         membrerole = ctx.guild.get_role(823227863284449352)
         noexprole = ctx.guild.get_role(823229487974055957)
         if ctx.channel != 796886716719562762:
