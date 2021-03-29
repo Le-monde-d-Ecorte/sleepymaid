@@ -68,7 +68,7 @@ class ecorte(commands.Cog):
             else:
                 await ctx.reply("> :x: Tu doit avoir le rôle **Membres**.")
 
-    @commands.command(hidden=True, aliases=['ap'])
+    @commands.command(aliases=['ap'])
     @is_in_guild(324284116021542922)
     async def approve(self, ctx, member: discord.Member):
         staffrole = ctx.guild.get_role(797650029278920714)
