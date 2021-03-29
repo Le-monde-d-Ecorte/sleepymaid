@@ -52,7 +52,7 @@ class ecorte(commands.Cog):
             await user.remove_roles(userrole, autreligne, reason=f"Manually got un-verified by {ctx.author.name}#{ctx.author.discriminator}")
             await ctx.reply("> :white_check_mark: Done!", mention_author=False)
 
-    @commands.command(hidden=True)
+    @commands.command()
     @is_in_guild(324284116021542922)
     async def noexp(self, ctx):
         membrerole = ctx.guild.get_role(823227863284449352)
