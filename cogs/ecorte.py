@@ -18,6 +18,7 @@ class ecorte(commands.Cog):
     @commands.cooldown(1, 300, commands.BucketType.guild)
     @is_in_guild(324284116021542922)
     async def rainbow(self, ctx):
+        """ Change la couleur du rôle rainbow. """
         role = ctx.guild.get_role(818207098877116417)
         if role in ctx.author.roles:
             r = random.randint(1, 16777215)
