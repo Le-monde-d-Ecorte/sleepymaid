@@ -41,7 +41,7 @@ class ecorte(commands.Cog):
             await user.add_roles(userrole, autreligne, reason=f"Manually got verified by {ctx.author.name}#{ctx.author.discriminator}")
             await ctx.reply("> :white_check_mark: Done!", mention_author=False)
 
-    @commands.command(hidden=True, aliases=['uv'])
+    @commands.command(aliases=['uv'])
     @is_in_guild(324284116021542922)
     async def unverify(self, ctx, user: discord.Member):
         staffrole = ctx.guild.get_role(797650029278920714)
