@@ -10,26 +10,20 @@ def return_current_time():
     time = datetime.datetime.utcnow()
     return time.strftime('%A, %b %d %H:%M')
 
-
 serverid = 324284116021542922 # Le monde d'Ecorte
 en_vocal_role = 821791970632400956 # -- vocal -- Le monde d'Ecorte
 dans_un_vocal_role = 784121432811634760 # Dans un vocal Le monde d'Ecorte
-voice_log_channel_id = 821509142518824991 # voice_logs Le monde d'Ecorte
+voice_log_channel_id = 434861245846519828 # voice_logs Le monde d'Ecorte
 
-in_voice_channel_list = [
-    662113104951377960, # 0 Bureau d'Ecorte
-    816414942474928198, # 1 Staff
-    818300783078146049, # 2 En live
-    809932718820425728, # 3 Valorant
-    485528168401338371, # 4 IRL
-    617339537957453834, # 5 Public 1
-    617339691146018866, # 6 Public 2
-    811002839228219432, # 7 Level 1+
-    815439982273626182, # 8 Level 5+
-    817147513354059877, # 9 Level 20+
-    699722283794563144, # 10 AFK
-    787059609302073344 # 11 Rejoint
-]
+voice_for_role = {
+    662113104951377960: 597479857940725761, # Bureau d'Ecorte
+    816414942474928198: 822248947166609438, # Staff
+    818300783078146049: 822249421592330270, # En live
+    809932718820425728: 822250135480041484, # Valorant
+    485528168401338371: 822250136268570674, # IRL
+    617339537957453834: 822250138654867486, # Public 1
+    617339691146018866: 822251710038278154 # Public 2
+}
 
 class ecorte_voice(commands.Cog):
     def __init__(self, bot):
@@ -41,78 +35,10 @@ class ecorte_voice(commands.Cog):
 
         class invoice_role:
             async def add_role(channel):
-                guild = after.channel.guild
-                # Bureau d'Ecorte
-                if channel == in_voice_channel_list[0]:
-                    role = guild.get_role(597479857940725761)
-                # Staff
-                if channel == in_voice_channel_list[1]:
-                    role = guild.get_role(822248947166609438)
-                # En live
-                if channel == in_voice_channel_list[2]:
-                    role = guild.get_role(822249421592330270)
-                # Valorant
-                if channel == in_voice_channel_list[3]:
-                    role = guild.get_role(822250135480041484)
-                # IRL
-                if channel == in_voice_channel_list[4]:
-                    role = guild.get_role(822250136268570674)
-                # Public 1
-                if channel == in_voice_channel_list[5]:
-                    role = guild.get_role(822250138654867486)
-                # Public 2
-                if channel == in_voice_channel_list[6]:
-                    role = guild.get_role(822251710038278154)
-                # Level 1+
-                if channel == in_voice_channel_list[7]:
-                    role = guild.get_role(822251715273293866)
-                # Level 5+
-                if channel == in_voice_channel_list[8]:
-                    role = guild.get_role(822251718502776833)
-                # Level 20+
-                if channel == in_voice_channel_list[9]:
-                    role = guild.get_role(822251721195520020)
-                # Level 20+
-                if channel == in_voice_channel_list[10]:
-                    role = guild.get_role(822251724156305448)
-
+                role = after.channel.guild.get_role(voice_for_role[channel])
                 await member.add_roles(role, reason=f"Joined a voice channel. ({after.channel.name})")
             async def remove_role(channel):
-                guild = before.channel.guild
-                # Bureau d'Ecorte
-                if channel == in_voice_channel_list[0]:
-                    role = guild.get_role(597479857940725761)
-                # Staff
-                if channel == in_voice_channel_list[1]:
-                    role = guild.get_role(822248947166609438)
-                # En live
-                if channel == in_voice_channel_list[2]:
-                    role = guild.get_role(822249421592330270)
-                # Valorant
-                if channel == in_voice_channel_list[3]:
-                    role = guild.get_role(822250135480041484)
-                # IRL
-                if channel == in_voice_channel_list[4]:
-                    role = guild.get_role(822250136268570674)
-                # Public 1
-                if channel == in_voice_channel_list[5]:
-                    role = guild.get_role(822250138654867486)
-                # Public 2
-                if channel == in_voice_channel_list[6]:
-                    role = guild.get_role(822251710038278154)
-                # Level 1+
-                if channel == in_voice_channel_list[7]:
-                    role = guild.get_role(822251715273293866)
-                # Level 5+
-                if channel == in_voice_channel_list[8]:
-                    role = guild.get_role(822251718502776833)
-                # Level 20+
-                if channel == in_voice_channel_list[9]:
-                    role = guild.get_role(822251721195520020)
-                # Level 20+
-                if channel == in_voice_channel_list[10]:
-                    role = guild.get_role(822251724156305448)
-
+                role = before.channel.guild.get_role(voice_for_role[channel])
                 await member.remove_roles(role, reason=f"Left a voice channel. ({before.channel.name})")
 
         # Join un vocal
