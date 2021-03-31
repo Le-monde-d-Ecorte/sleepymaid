@@ -13,7 +13,7 @@ def return_current_time():
 serverid = 324284116021542922 # Le monde d'Ecorte
 en_vocal_role = 821791970632400956 # -- vocal -- Le monde d'Ecorte
 dans_un_vocal_role = 784121432811634760 # Dans un vocal Le monde d'Ecorte
-voice_log_channel_id = 434861245846519828 # voice_logs Le monde d'Ecorte
+voice_log_channel_id = 821509142518824991 # voice_logs Le monde d'Ecorte
 
 voice_for_role = {
     662113104951377960: 597479857940725761, # Bureau d'Ecorte
