@@ -50,7 +50,7 @@ class ecorte_janitor(commands.Cog):
                 has_other_acces_role = True
             elif role.name.lower() == 'nitro booster':
                 has_nitro_booster = True
-            elif role.name.lower() == '🔑'
+            elif role.name.lower() == '🔑':
                 has_key = True
         if has_membres and has_nouveau:
             await member.remove_roles(nouveau_role)
