@@ -68,38 +68,38 @@ class ecorte_janitor(commands.Cog):
             await member.remove_roles(key_role)
             await membre.add_roles(nouveau_role)
         time.sleep(2)
-        membres_role = ctx.guild.get_role(377944202710876161)
+        membres_role = ctx.guild.get_role(823227863284449352)
         for index, member in enumerate(membres_role.members):
             await member.remove_roles(membres_role)
             await member.add_roles(key_role)
         time.sleep(2)
         actif_role = ctx.guild.get_role(823228233025323038)
-        for index, member in enumerate(actif_role):
+        for index, member in enumerate(actif_role.members):
             await member.remove_roles(actif_role)
             await member.add_roles(key_role)
         time.sleep(2)
         normal_role = ctx.guild.get_role(823228560193486938)
-        for index, member in enumerate(normal_role):
+        for index, member in enumerate(normal_role.members):
             await member.remove_roles(normal_role)
             await member.add_roles(key_role)
         time.sleep(2)
         habituer_role = ctx.guild.get_role(823228994462941184)
-        for index, member in enumerate(habituer_role):
+        for index, member in enumerate(habituer_role.members):
             await member.remove_roles(habituer_role)
             await member.add_roles(key_role)
         time.sleep(2)
         addicte_role = ctx.guild.get_role(823233856776699944)
-        for index, member in enumerate(addicte_role):
+        for index, member in enumerate(addicte_role.members):
             await member.remove_roles(addicte_role)
             await member.add_roles(key_role)
         time.sleep(2)
         insomniaque_role = ctx.guild.get_role(823302261354659850)
-        for index, member in enumerate(insomniaque_role):
+        for index, member in enumerate(insomniaque_role.members):
             await member.remove_roles(insomniaque_role)
             await member.add_role(skey_role)
         time.sleep(2)
         pas_de_vie_role = ctx.guild.get_role(823302283788812319)
-        for index, member in enumerate(pas_de_vie_role):
+        for index, member in enumerate(pas_de_vie_role.members):
             await member.remove_roles(pas_de_vie_role)
             await member.add_roles(key_role)
         print("month_end")
