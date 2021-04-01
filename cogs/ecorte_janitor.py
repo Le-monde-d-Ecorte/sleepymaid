@@ -35,6 +35,7 @@ class ecorte_janitor(commands.Cog):
         has_noexp = False
         has_other_acces_role = False
         has_nitro_booster = False
+        has_key = False
         member_roles = message.author.roles
         for index, role in enumerate(member_roles):
             if role.name.lower() == 'nouveau':
@@ -49,6 +50,8 @@ class ecorte_janitor(commands.Cog):
                 has_other_acces_role = True
             elif role.name.lower() == 'nitro booster':
                 has_nitro_booster = True
+            elif role.name.lower() == '🔑'
+                has_key = True
         if has_membres and has_nouveau:
             await member.remove_roles(nouveau_role)
 #            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à Membres.")
@@ -57,6 +60,10 @@ class ecorte_janitor(commands.Cog):
 #            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à un rôle plus haut.")
         if has_noexp and has_nouveau:
             await member.remove_roles(nouveau_role)
+        if has_key and has_membres:
+            await member.remove_roles(membres_role)
+        if has_key and has_level_role:
+            await member.remove_roles(membres_role)
 
     @commands.command()
     @is_in_guild(324284116021542922)
