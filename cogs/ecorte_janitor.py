@@ -79,7 +79,7 @@ class ecorte_janitor(commands.Cog):
             await member.add_roles(key_role)
         time.sleep(2)
         normal_role = ctx.guild.get_role(823228560193486938)
-        for index, member in enumerate(normal_role)
+        for index, member in enumerate(normal_role):
             await member.remove_roles(normal_role)
             await member.add_roles(key_role)
         time.sleep(2)
