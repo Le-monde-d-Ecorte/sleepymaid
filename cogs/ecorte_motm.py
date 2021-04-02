@@ -28,6 +28,7 @@ class ecorte_motm(commands.Cog):
             await ctx.send("> :x: Tu doit être le membre du mois pour utiliser cette commande.")
 
     @motm.command(name="nom", aliases=["n", "name"])
+    @commands.cooldown(1, 60, commands.BucketType.guild)
     @is_in_guild(324284116021542922)
     async def nom(self, ctx, *, name: str):
         """ Changer le nom du rôle. """
@@ -39,6 +40,7 @@ class ecorte_motm(commands.Cog):
             await ctx.reply("> :x: Tu doit être le membre du mois pour utiliser cette commande.", mention_author=True)
 
     @motm.command(name="couleur", aliases=["c", "color", "colour"])
+    @commands.cooldown(1, 60, commands.BucketType.guild)
     @is_in_guild(324284116021542922)
     async def couleur(self, ctx, color_input: discord.Colour = None):
         """ Changer la couleur du rôle. """
