@@ -29,6 +29,7 @@ class ecorte_janitor(commands.Cog):
             return
         nouveau_role = guild.get_role(614126210422800404)
         membres_role = guild.get_role(823227863284449352)
+        key_role = guild.get_role(827237537222230056)
         has_nouveau = False
         has_membres = False
         has_level_role = False
@@ -61,9 +62,9 @@ class ecorte_janitor(commands.Cog):
         if has_noexp and has_nouveau:
             await member.remove_roles(nouveau_role)
         if has_key and has_membres:
-            await member.remove_roles(membres_role)
+            await member.remove_roles(key_role)
         if has_key and has_level_role:
-            await member.remove_roles(membres_role)
+            await member.remove_roles(key_role)
 
     @commands.command()
     @is_in_guild(324284116021542922)
