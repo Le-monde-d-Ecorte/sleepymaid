@@ -3,6 +3,7 @@ import random
 
 from utils import default
 from discord.ext import commands
+from utils import permissions, default
 
 class Ecorte(commands.Cog):
     def __init__(self, bot):
