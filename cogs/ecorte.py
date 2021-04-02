@@ -31,6 +31,7 @@ class Ecorte(commands.Cog):
             await ctx.send("> :x: Tu doit avoir le rôle **Rainbow**.\n > Pour avoir le rôle tu doit soit avoir le rôle **Addicte** ou le rôle **No-EXP**.\n > Si tu a un de ces rôles va dans <#796886716719562762> et tape **-role rainbow**.")
 
     @commands.command(aliases=['v'])
+    @permissions.has_permissions(manage_messages=True)
     @is_in_guild(324284116021542922)
     async def verify(self, ctx, user: discord.Member):
         """ Verify someone. (Mod only) """
@@ -42,6 +43,7 @@ class Ecorte(commands.Cog):
             await ctx.reply("> :white_check_mark: Done!", mention_author=False)
 
     @commands.command(aliases=['uv'])
+    @permissions.has_permissions(manage_messages=True)
     @is_in_guild(324284116021542922)
     async def unverify(self, ctx, user: discord.Member):
         """ Un-Verify someone. (Mod only) """
@@ -69,6 +71,7 @@ class Ecorte(commands.Cog):
                 await ctx.reply("> :x: Tu doit avoir le rôle **Membres**.")
 
     @commands.command(aliases=['ap'])
+    @permissions.has_permissions(manage_messages=True)
     @is_in_guild(324284116021542922)
     async def approve(self, ctx, member: discord.Member):
         """ Approuver un membres. (Mod only)"""
