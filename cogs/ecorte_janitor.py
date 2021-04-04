@@ -7,6 +7,7 @@ from utils import permissions, default, http
 
 guild_id = 324284116021542922
 
+
 class ecorte_janitor(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -104,7 +105,7 @@ class ecorte_janitor(commands.Cog):
         insomniaque_role = ctx.guild.get_role(823302261354659850)
         for index, member in enumerate(insomniaque_role.members):
             await member.remove_roles(insomniaque_role)
-            await member.add_role(skey_role)
+            await member.add_role(key_role)
         time.sleep(2)
         pas_de_vie_role = ctx.guild.get_role(823302283788812319)
         for index, member in enumerate(pas_de_vie_role.members):
@@ -118,6 +119,7 @@ class ecorte_janitor(commands.Cog):
     async def announce_winner(self, ctx, winner: discord.Member):
         channel = ctx.guild.get_channel(809468282520338432)
         await channel.send(f"> **Nouveau Mois**\n> **1er Avril 2021**\n\n**Membre du mois: <@{winner.id}>**, Il obtient donc le rôle <@&817570082330378250>.\n-	Se qui donne accès a la commande ``!motm`` pour voir tous les commandes qui débloque en étant membre du mois.\n\n:small_orange_diamond: Pour être membre du mois tu doit être premier dans le leaderboard Amari. Pour voir ton rank va dans <#439155130924007444> et fait ``;rank``.")
+
 
 def setup(bot):
     bot.add_cog(ecorte_janitor(bot))
