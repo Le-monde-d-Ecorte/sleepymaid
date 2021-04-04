@@ -74,7 +74,7 @@ class ecorte_janitor(commands.Cog):
         nouveau_role = ctx.guild.get_role(614126210422800404)
         for index, member in enumerate(key_role.members):
             await member.remove_roles(key_role)
-            await membre.add_roles(nouveau_role)
+            await member.add_roles(nouveau_role)
         time.sleep(2)
         membres_role = ctx.guild.get_role(823227863284449352)
         for index, member in enumerate(membres_role.members):
