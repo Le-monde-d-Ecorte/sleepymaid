@@ -5,6 +5,7 @@ from utils import default
 from discord.ext import commands
 from utils import permissions, default
 
+
 class Ecorte(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -81,6 +82,7 @@ class Ecorte(commands.Cog):
             approvedrole = ctx.guild.get_role(823691168982237185)
             await member.add_roles(approvedrole, reason=f"Manually got approved by {ctx.author.name}#{ctx.author.discriminator}")
             await ctx.reply("> :white_check_mark: Done!", mention_author=False)
+
 
 def setup(bot):
     bot.add_cog(Ecorte(bot))
