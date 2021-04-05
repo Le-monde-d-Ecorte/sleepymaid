@@ -37,8 +37,7 @@ class ecorte_janitor(commands.Cog):
         has_level_role = False
         has_noexp = False
 #        has_other_acces_role = False
-        has_addicte_and_higher = False
-        has_nitro_booster = False
+        is_not_eligible_for_rainbow = True
         has_key = False
         has_rainbow = False
         member_roles = message.author.roles
@@ -51,12 +50,10 @@ class ecorte_janitor(commands.Cog):
                 has_noexp = True
             elif role.name.lower() in ['actif', 'normal', 'habituer', 'addicte', 'insomniaque', 'pas de vie']:
                 has_level_role = True
-            elif role.name.lower() in ['addicte', 'insomniaque', 'pas de vie']:
-                has_addicte_and_higher = True
+            elif role.name.lower() in ['no-exp', 'addicte', 'insomniaque', 'pas de vie', 'nitro booster']:
+                is_not_eligible_for_rainbow = False
 #            elif role.name.lower() in ['irl', 'ancien staff', 'staff en pause']:
 #                has_other_acces_role = True
-            elif role.name.lower() == 'nitro booster':
-                has_nitro_booster = True
             elif role.name.lower() == '🔑':
                 has_key = True
             elif role.name.lower() == 'rainbow':
@@ -74,7 +71,7 @@ class ecorte_janitor(commands.Cog):
         if has_key and has_level_role:
             await member.remove_roles(key_role)
         if has_rainbow:
-            if has_nitro_booster is False or has_addicte_and_higher is False:
+            if is_not_eligible_for_rainbow:
                 await member.remove_roles(rainbow_role)
 
     @commands.command()
