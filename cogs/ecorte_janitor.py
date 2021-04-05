@@ -29,13 +29,13 @@ class ecorte_janitor(commands.Cog):
         if message.author.bot:
             return
         nouveau_role = guild.get_role(614126210422800404)
-        membres_role = guild.get_role(823227863284449352)
+#        membres_role = guild.get_role(823227863284449352)
         key_role = guild.get_role(827237537222230056)
         has_nouveau = False
         has_membres = False
         has_level_role = False
         has_noexp = False
-        has_other_acces_role = False
+#        has_other_acces_role = False
         has_nitro_booster = False
         has_key = False
         member_roles = message.author.roles
@@ -48,8 +48,8 @@ class ecorte_janitor(commands.Cog):
                 has_noexp = True
             elif role.name.lower() in ['actif', 'normal', 'habituer', 'addicte', 'insomniaque', 'pas de vie']:
                 has_level_role = True
-            elif role.name.lower() in ['irl', 'ancien staff', 'staff en pause']:
-                has_other_acces_role = True
+#            elif role.name.lower() in ['irl', 'ancien staff', 'staff en pause']:
+#                has_other_acces_role = True
             elif role.name.lower() == 'nitro booster':
                 has_nitro_booster = True
             elif role.name.lower() == '🔑':
