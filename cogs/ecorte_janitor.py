@@ -30,14 +30,17 @@ class ecorte_janitor(commands.Cog):
             return
         nouveau_role = guild.get_role(614126210422800404)
 #        membres_role = guild.get_role(823227863284449352)
+        rainbow_role = guild.get_role(818207098877116417)
         key_role = guild.get_role(827237537222230056)
         has_nouveau = False
         has_membres = False
         has_level_role = False
         has_noexp = False
 #        has_other_acces_role = False
+        has_addicte_and_higher = False
         has_nitro_booster = False
         has_key = False
+        has_rainbow = False
         member_roles = message.author.roles
         for index, role in enumerate(member_roles):
             if role.name.lower() == 'nouveau':
@@ -48,12 +51,16 @@ class ecorte_janitor(commands.Cog):
                 has_noexp = True
             elif role.name.lower() in ['actif', 'normal', 'habituer', 'addicte', 'insomniaque', 'pas de vie']:
                 has_level_role = True
+            elif role.name.lower() in ['addicte', 'insomniaque', 'pas de vie']:
+                has_addicte_and_higher = True
 #            elif role.name.lower() in ['irl', 'ancien staff', 'staff en pause']:
 #                has_other_acces_role = True
             elif role.name.lower() == 'nitro booster':
                 has_nitro_booster = True
             elif role.name.lower() == '🔑':
                 has_key = True
+            elif role.name.lower() == 'rainbow':
+                has_rainbow = True
         if has_membres and has_nouveau:
             await member.remove_roles(nouveau_role)
 #            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à Membres.")
@@ -66,6 +73,11 @@ class ecorte_janitor(commands.Cog):
             await member.remove_roles(key_role)
         if has_key and has_level_role:
             await member.remove_roles(key_role)
+        if has_rainbow:
+            if has_nitro_booster is False:
+                await member.remove_roles(rainbow_role)
+            if has_addicte_and_higher is False:
+                await member.remove_roles(rainbow_role)
 
     @commands.command()
     @is_in_guild(324284116021542922)
