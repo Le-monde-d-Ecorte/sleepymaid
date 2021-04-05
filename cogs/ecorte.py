@@ -26,7 +26,7 @@ class Ecorte(commands.Cog):
             r = discord.Colour.random()
             await role.edit(color=r)
             embed = discord.Embed(
-                description=f"Tu viens de changer la couleur du rôle <@&818207098877116417> pour {r}. \nTu peut rechanger la couleur du rôle <@&818207098877116417> dans 5 minutes. \nPour avoir la couleur retire tout tes rôles de couleur/couleur de rôle custom.", color=r)
+                description=f"Tu viens de changer la couleur du rôle <@&818207098877116417> pour {r}. \nTu peut rechanger la couleur du rôle <@&818207098877116417> dans 5 minutes.", color=r)
             embed.set_author(
                 name="Rôle Rainbow", icon_url="https://media.discordapp.net/attachments/811959848921071636/822598144968884314/baa392758f065fa770e3a9063f91d33a.png")
             await ctx.send(embed=embed)
