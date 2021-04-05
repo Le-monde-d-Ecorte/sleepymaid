@@ -6,7 +6,7 @@ Based on [discord_bot.py](https://github.com/AlexFlipnote/discord_bot.py) by [Al
 Keep [this](https://discordpy.readthedocs.io/en/latest/) saved somewhere, as this is the docs to discord.py@rewrite.
 All you need to know about the library is defined inside here, even code that I don't use in this example is here.
 
-# Optional tools
+## Optional tools
 ### PM2
 PM2 is an alternative script provided by NodeJS, which will reboot your bot whenever it crashes and keep it up with a nice status. You can install it by doing `npm install -g pm2` and you should be done. Keep in mind that this PM2 file is made to work on my own Linux instance, you might need to change the `interpreter` value.
 ```
