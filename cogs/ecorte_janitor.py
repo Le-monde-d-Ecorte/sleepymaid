@@ -74,9 +74,7 @@ class ecorte_janitor(commands.Cog):
         if has_key and has_level_role:
             await member.remove_roles(key_role)
         if has_rainbow:
-            if has_nitro_booster is False:
-                await member.remove_roles(rainbow_role)
-            if has_addicte_and_higher is False:
+            if has_nitro_booster is False or has_addicte_and_higher is False:
                 await member.remove_roles(rainbow_role)
 
     @commands.command()
