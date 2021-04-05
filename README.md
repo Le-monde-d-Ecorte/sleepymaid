@@ -1,3 +1,6 @@
+### Sleepy Maid
+Based on [discord_bot.py](https://github.com/AlexFlipnote/discord_bot.py) by [AlexFlipnote](https://github.com/AlexFlipnote). This is a utility bot made for some of my server ans other server I like. I will not provide any support on hosting this bot because this is made for specific server.
+
 
 ## Useful to always have
 Keep [this](https://discordpy.readthedocs.io/en/latest/) saved somewhere, as this is the docs to discord.py@rewrite.
