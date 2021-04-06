@@ -16,7 +16,8 @@ class MemberID(commands.Converter):
             try:
                 return int(argument, base=10)
             except ValueError:
-                raise commands.BadArgument(f"{argument} is not a valid member or member ID.") from None
+                raise commands.BadArgument(
+                    f"{argument} is not a valid member or member ID.") from None
         else:
             return m.id
 
@@ -27,7 +28,8 @@ class ActionReason(commands.Converter):
 
         if len(ret) > 512:
             reason_max = 512 - len(ret) - len(argument)
-            raise commands.BadArgument(f'reason is too long ({len(argument)}/{reason_max})')
+            raise commands.BadArgument(
+                f'reason is too long ({len(argument)}/{reason_max})')
         return ret
 
 
@@ -114,7 +116,8 @@ class Moderator(commands.Cog):
         if await permissions.check_priv(ctx, member):
             return
 
-        muted_role = next((g for g in ctx.guild.roles if g.name == "Muted"), None)
+        muted_role = next(
+            (g for g in ctx.guild.roles if g.name == "Muted"), None)
 
         if not muted_role:
             return await ctx.send("Are you sure you've made a role called **Muted**? Remember that it's case sensetive too...")
@@ -133,7 +136,8 @@ class Moderator(commands.Cog):
         if await permissions.check_priv(ctx, member):
             return
 
-        muted_role = next((g for g in ctx.guild.roles if g.name == "Muted"), None)
+        muted_role = next(
+            (g for g in ctx.guild.roles if g.name == "Muted"), None)
 
         if not muted_role:
             return await ctx.send("Are you sure you've made a role called **Muted**? Remember that it's case sensetive too...")
@@ -195,7 +199,8 @@ class Moderator(commands.Cog):
             if i.activities and (not i.bot):
                 for g in i.activities:
                     if g.name and (search.lower() in g.name.lower()):
-                        loop.append(f"{i} | {type(g).__name__}: {g.name} ({i.id})")
+                        loop.append(
+                            f"{i} | {type(g).__name__}: {g.name} ({i.id})")
 
         await default.prettyResults(
             ctx, "playing", f"Found **{len(loop)}** on your search for **{search}**", loop
@@ -203,21 +208,24 @@ class Moderator(commands.Cog):
 
     @find.command(name="username", aliases=["name"])
     async def find_name(self, ctx, *, search: str):
-        loop = [f"{i} ({i.id})" for i in ctx.guild.members if search.lower() in i.name.lower() and not i.bot]
+        loop = [f"{i} ({i.id})" for i in ctx.guild.members if search.lower(
+        ) in i.name.lower() and not i.bot]
         await default.prettyResults(
             ctx, "name", f"Found **{len(loop)}** on your search for **{search}**", loop
         )
 
     @find.command(name="nickname", aliases=["nick"])
     async def find_nickname(self, ctx, *, search: str):
-        loop = [f"{i.nick} | {i} ({i.id})" for i in ctx.guild.members if i.nick if (search.lower() in i.nick.lower()) and not i.bot]
+        loop = [f"{i.nick} | {i} ({i.id})" for i in ctx.guild.members if i.nick if (
+            search.lower() in i.nick.lower()) and not i.bot]
         await default.prettyResults(
             ctx, "name", f"Found **{len(loop)}** on your search for **{search}**", loop
         )
 
     @find.command(name="id")
     async def find_id(self, ctx, *, search: int):
-        loop = [f"{i} | {i} ({i.id})" for i in ctx.guild.members if (str(search) in str(i.id)) and not i.bot]
+        loop = [f"{i} | {i} ({i.id})" for i in ctx.guild.members if (
+            str(search) in str(i.id)) and not i.bot]
         await default.prettyResults(
             ctx, "name", f"Found **{len(loop)}** on your search for **{search}**", loop
         )
@@ -227,7 +235,8 @@ class Moderator(commands.Cog):
         if not len(search) == 4 or not re.compile("^[0-9]*$").search(search):
             return await ctx.send("You must provide exactly 4 digits")
 
-        loop = [f"{i} ({i.id})" for i in ctx.guild.members if search == i.discriminator]
+        loop = [
+            f"{i} ({i.id})" for i in ctx.guild.members if search == i.discriminator]
         await default.prettyResults(
             ctx, "discriminator", f"Found **{len(loop)}** on your search for **{search}**", loop
         )
@@ -327,7 +336,8 @@ class Moderator(commands.Cog):
     @prune.command(name='emojis')
     async def _emojis(self, ctx, search=100):
         """Removes all messages containing custom emoji."""
-        custom_emoji = re.compile(r'<a?:(.*?):(\d{17,21})>|[\u263a-\U0001f645]')
+        custom_emoji = re.compile(
+            r'<a?:(.*?):(\d{17,21})>|[\u263a-\U0001f645]')
 
         def predicate(m):
             return custom_emoji.search(m.content)
@@ -349,7 +359,7 @@ class Moderator(commands.Cog):
 
         await ctx.send(f'Successfully removed {total_reactions} reactions.')
 
-    @commands.command()
+    @commands.command(aliases=['cooldown'])
     @commands.guild_only()
     @permissions.has_permissions(manage_messages=True)
     async def slowmode(self, ctx, seconds: int, channel: discord.TextChannel = None):
@@ -358,16 +368,21 @@ class Moderator(commands.Cog):
             if not channel:
                 await ctx.channel.edit(slowmode_delay=seconds)
                 if seconds >= 1:
-                    embed = discord.Embed(description=f"Set the slowmode delay in this channel to {seconds} seconds!", colour=discord.Colour(0x77b255))
+                    embed = discord.Embed(
+                        description=f"Set the slowmode delay in this channel to {seconds} seconds!", colour=discord.Colour(0x77b255))
                 else:
-                    embed = discord.Embed(description="Removed the slowmode in this channel!", colour=discord.Colour(0x77b255))
+                    embed = discord.Embed(
+                        description="Removed the slowmode in this channel!", colour=discord.Colour(0x77b255))
             else:
                 await channel.edit(slowmode_delay=seconds)
                 if seconds >= 1:
-                    embed = discord.Embed(description=f"Set the slowmode delay in <#{channel.id}> to {seconds} seconds!", colour=discord.Colour(0x77b255))
+                    embed = discord.Embed(
+                        description=f"Set the slowmode delay in <#{channel.id}> to {seconds} seconds!", colour=discord.Colour(0x77b255))
                 else:
-                    embed = discord.Embed(description=f"Removed the slowmode in <#{channel.id}>!", colour=discord.Colour(0x77b255))
-            embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
+                    embed = discord.Embed(
+                        description=f"Removed the slowmode in <#{channel.id}>!", colour=discord.Colour(0x77b255))
+            embed.set_author(
+                name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/464101573023367189/811266070223650817/whitemark.png")
             await ctx.send(embed=embed)
         except:
             await ctx.send("Error")
