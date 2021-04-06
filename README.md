@@ -18,5 +18,5 @@ pm2 <command> [name]
   start sleepymaid    Run the bot again if it's offline
   list                Get a full list of all available services
   stop sleepymaid     Stop the bot
-  reboot sleepymaid   Reboot the bot
+  restart sleepymaid  Reboot the bot
 ```
