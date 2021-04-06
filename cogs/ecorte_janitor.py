@@ -18,17 +18,71 @@ class ecorte_janitor(commands.Cog):
             return ctx.guild and ctx.guild.id == guild_id
         return commands.check(predicate)
 
+#    @commands.Cog.listener()
+#    async def on_message(self, message):
+#        guild = message.guild
+#        member = message.author
+#        if isinstance(message.channel, discord.DMChannel):
+#            return
+#        if message.guild.id != guild_id:
+#            return
+#        if message.author.bot:
+#            return
+#        if message.channel.id in [439155130924007444, 816419654205177857, 816419626576511016, 777648765065625670, 817135816564015104, 781651409023533117, 793247248033120266]:
+#            return
+#        nouveau_role = guild.get_role(614126210422800404)
+#        membres_role = guild.get_role(823227863284449352)
+#        rainbow_role = guild.get_role(818207098877116417)
+#        key_role = guild.get_role(827237537222230056)
+#        has_nouveau = False
+#        has_membres = False
+#        has_level_role = False
+#        has_noexp = False
+#        has_other_acces_role = False
+#        is_not_eligible_for_rainbow = True
+#        has_key = False
+#        has_rainbow = False
+#        member_roles = message.author.roles
+#        for index, role in enumerate(member_roles):
+#            if role.name.lower() == 'nouveau':
+#                has_nouveau = True
+#            elif role.name.lower() == 'membres':
+#                has_membres = True
+#            elif role.name.lower() == 'no-exp':
+#                has_noexp = True
+#            elif role.name.lower() in ['actif', 'normal', 'habituer', 'addicte', 'insomniaque', 'pas de vie']:
+#                has_level_role = True
+#            elif role.name.lower() in ['no-exp', 'addicte', 'insomniaque', 'pas de vie', 'nitro booster']:
+#                is_not_eligible_for_rainbow = False
+#            elif role.name.lower() in ['irl', 'ancien staff', 'staff en pause']:
+#                has_other_acces_role = True
+#            elif role.name.lower() == '🔑':
+#                has_key = True
+#            elif role.name.lower() == 'rainbow':
+#                has_rainbow = True
+#        if has_membres and has_nouveau:
+#            await member.remove_roles(nouveau_role)
+#            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à Membres.")
+#        if has_level_role and has_nouveau:
+#            await member.remove_roles(nouveau_role)
+#            await message.channel.send(f"L'utilisateur <@{member.id}> a level up de Nouveaux à un rôle plus haut.")
+#        if has_noexp and has_nouveau:
+#            await member.remove_roles(nouveau_role)
+#        if has_key and has_membres:
+#            await member.remove_roles(key_role)
+#        if has_key and has_level_role:
+#            await member.remove_roles(key_role)
+#        if has_rainbow:
+#            if is_not_eligible_for_rainbow:
+#                await member.remove_roles(rainbow_role)
+
     @commands.Cog.listener()
-    async def on_message(self, message):
-        guild = message.guild
-        member = message.author
-        if isinstance(message.channel, discord.DMChannel):
+    async def on_member_update(self, before, after):
+        guild = after.guild
+        member = after
+        if guild.id != guild_id:
             return
-        if message.guild.id != guild_id:
-            return
-        if message.author.bot:
-            return
-        if message.channel.id in [439155130924007444, 816419654205177857, 816419626576511016, 777648765065625670, 817135816564015104, 781651409023533117, 793247248033120266]:
+        if member.bot:
             return
         nouveau_role = guild.get_role(614126210422800404)
 #        membres_role = guild.get_role(823227863284449352)
@@ -42,7 +96,7 @@ class ecorte_janitor(commands.Cog):
         is_not_eligible_for_rainbow = True
         has_key = False
         has_rainbow = False
-        member_roles = message.author.roles
+        member_roles = member.roles
         for index, role in enumerate(member_roles):
             if role.name.lower() == 'nouveau':
                 has_nouveau = True
