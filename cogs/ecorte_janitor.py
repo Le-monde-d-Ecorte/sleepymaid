@@ -28,6 +28,8 @@ class ecorte_janitor(commands.Cog):
             return
         if message.author.bot:
             return
+        if message.channel.id in [439155130924007444, 816419654205177857, 816419626576511016, 777648765065625670, 817135816564015104, 781651409023533117, 793247248033120266]:
+            return
         nouveau_role = guild.get_role(614126210422800404)
 #        membres_role = guild.get_role(823227863284449352)
         rainbow_role = guild.get_role(818207098877116417)
