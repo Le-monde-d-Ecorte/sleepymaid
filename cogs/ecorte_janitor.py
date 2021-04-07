@@ -106,7 +106,7 @@ class ecorte_janitor(commands.Cog):
                 has_noexp = True
             elif role.name.lower() in ['actif', 'normal', 'habituer', 'addicte', 'insomniaque', 'pas de vie']:
                 has_level_role = True
-            elif role.name.lower() in ['no-exp', 'addicte', 'insomniaque', 'pas de vie', 'nitro booster']:
+            elif role.name.lower() in ['no-exp', 'addicte', 'insomniaque', 'pas de vie', 'nitro booster', 'mods']:
                 is_not_eligible_for_rainbow = False
 #            elif role.name.lower() in ['irl', 'ancien staff', 'staff en pause']:
 #                has_other_acces_role = True
