@@ -38,20 +38,16 @@ class ecorte_voice(commands.Cog):
 
         class invoice_role:
             async def add_role(channel):
-                try:
+                if channel in voice_for_role:
                     role = after.channel.guild.get_role(
                         voice_for_role[channel])
                     await member.add_roles(role, reason=f"Joined a voice channel. ({after.channel.name})")
-                except KeyError:
-                    return
 
             async def remove_role(channel):
-                try:
+                if channel in voice_for_role:
                     role = before.channel.guild.get_role(
                         voice_for_role[channel])
                     await member.remove_roles(role, reason=f"Left a voice channel. ({before.channel.name})")
-                 except KeyError:
-                    return
 
         # Join un vocal
         if before.channel is None and after.channel is not None:
@@ -60,7 +56,8 @@ class ecorte_voice(commands.Cog):
             guild = after.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
-            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has joined **{after.channel.name}**.", color=0x419400)
+            embed = discord.Embed(
+                title="Presence Update", description=f"**{member.name}#{member.discriminator}** has joined **{after.channel.name}**.", color=0x419400)
             embed.set_footer(text=return_current_time())
             await voicelogchannel.send(embed=embed)
 
@@ -81,7 +78,8 @@ class ecorte_voice(commands.Cog):
             guild = before.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
-            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has left **{before.channel.name}**.", color=0x419400)
+            embed = discord.Embed(
+                title="Presence Update", description=f"**{member.name}#{member.discriminator}** has left **{before.channel.name}**.", color=0x419400)
             embed.set_footer(text=return_current_time())
             await voicelogchannel.send(embed=embed)
 
@@ -102,7 +100,8 @@ class ecorte_voice(commands.Cog):
             guild = before.channel.guild
             voicelogchannel = guild.get_channel(voice_log_channel_id)
 
-            embed = discord.Embed(title="Presence Update", description=f"**{member.name}#{member.discriminator}** has moved from **{before.channel.name}** to **{after.channel.name}**.", color=0x419400)
+            embed = discord.Embed(
+                title="Presence Update", description=f"**{member.name}#{member.discriminator}** has moved from **{before.channel.name}** to **{after.channel.name}**.", color=0x419400)
             embed.set_footer(text=return_current_time())
             await voicelogchannel.send(embed=embed)
 
