@@ -6,24 +6,27 @@ from io import BytesIO
 from utils import default
 from discord.ext import commands
 
+
 def return_current_time():
     time = datetime.datetime.utcnow()
     return time.strftime('%A, %b %d %H:%M')
 
-serverid = 324284116021542922 # Le monde d'Ecorte
-en_vocal_role = 821791970632400956 # -- vocal -- Le monde d'Ecorte
-dans_un_vocal_role = 784121432811634760 # Dans un vocal Le monde d'Ecorte
-voice_log_channel_id = 821509142518824991 # voice_logs Le monde d'Ecorte
+
+serverid = 324284116021542922  # Le monde d'Ecorte
+en_vocal_role = 821791970632400956  # -- vocal -- Le monde d'Ecorte
+dans_un_vocal_role = 784121432811634760  # Dans un vocal Le monde d'Ecorte
+voice_log_channel_id = 821509142518824991  # voice_logs Le monde d'Ecorte
 
 voice_for_role = {
-    662113104951377960: 597479857940725761, # Bureau d'Ecorte
-    816414942474928198: 822248947166609438, # Staff
-    818300783078146049: 822249421592330270, # En live
-    809932718820425728: 822250135480041484, # Valorant
-    485528168401338371: 822250136268570674, # IRL
-    617339537957453834: 822250138654867486, # Public 1
-    617339691146018866: 822251710038278154 # Public 2
+    662113104951377960: 597479857940725761,  # Bureau d'Ecorte
+    816414942474928198: 822248947166609438,  # Staff
+    818300783078146049: 822249421592330270,  # En live
+    809932718820425728: 822250135480041484,  # Valorant
+    485528168401338371: 822250136268570674,  # IRL
+    617339537957453834: 822250138654867486,  # Public 1
+    617339691146018866: 822251710038278154  # Public 2
 }
+
 
 class ecorte_voice(commands.Cog):
     def __init__(self, bot):
