@@ -35,11 +35,20 @@ class ecorte_voice(commands.Cog):
 
         class invoice_role:
             async def add_role(channel):
-                role = after.channel.guild.get_role(voice_for_role[channel])
-                await member.add_roles(role, reason=f"Joined a voice channel. ({after.channel.name})")
+                try:
+                    role = after.channel.guild.get_role(
+                        voice_for_role[channel])
+                    await member.add_roles(role, reason=f"Joined a voice channel. ({after.channel.name})")
+                except KeyError:
+                    return
+
             async def remove_role(channel):
-                role = before.channel.guild.get_role(voice_for_role[channel])
-                await member.remove_roles(role, reason=f"Left a voice channel. ({before.channel.name})")
+                try:
+                    role = before.channel.guild.get_role(
+                        voice_for_role[channel])
+                    await member.remove_roles(role, reason=f"Left a voice channel. ({before.channel.name})")
+                 except KeyError:
+                    return
 
         # Join un vocal
         if before.channel is None and after.channel is not None:
