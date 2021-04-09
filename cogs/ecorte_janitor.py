@@ -126,6 +126,8 @@ class ecorte_janitor(commands.Cog):
             await member.remove_roles(key_role)
         if has_key and has_level_role:
             await member.remove_roles(key_role)
+        if has_key and has_nouveau:
+            await member.remove_roles(nouveau_role)
         if has_rainbow:
             if is_not_eligible_for_rainbow:
                 await member.remove_roles(rainbow_role)
