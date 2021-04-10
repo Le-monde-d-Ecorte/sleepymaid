@@ -6,6 +6,7 @@ from discord.ext import commands
 guild_id = 324284116021542922
 crown_role_id = 817570082330378250
 
+
 class ecorte_motm(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -34,8 +35,11 @@ class ecorte_motm(commands.Cog):
         """ Changer le nom du rôle. """
         crown_role = ctx.guild.get_role(crown_role_id)
         if crown_role in ctx.author.roles:
-            await crown_role.edit(name=f"{name} ᴹᴼᵀᴹ")
-            await ctx.reply("> :white_check_mark: Nom modifié!", mention_author=True)
+            if len(name) > 18:
+                await ctx.reply("> :x: Nom trop long.", mention_author=True)
+            else:
+                await crown_role.edit(name=f"{name} ᴹᴼᵀᴹ")
+                await ctx.reply("> :white_check_mark: Nom modifié!", mention_author=True)
         else:
             await ctx.reply("> :x: Tu doit être le membre du mois pour utiliser cette commande.", mention_author=True)
 
