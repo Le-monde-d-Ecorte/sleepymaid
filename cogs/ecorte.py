@@ -3,6 +3,7 @@ import random
 
 from utils import default
 from discord.ext import commands
+from discord.ext.commands import errors
 from utils import permissions, default
 
 
@@ -18,20 +19,23 @@ class Ecorte(commands.Cog):
 
     @commands.command(aliases=['rb'])
     @commands.cooldown(1, 300, commands.BucketType.guild)
+    @commands.has_any_role(818207098877116417)
     @is_in_guild(324284116021542922)
     async def rainbow(self, ctx):
         """ Change la couleur du rôle rainbow. """
         role = ctx.guild.get_role(818207098877116417)
-        if role in ctx.author.roles:
-            r = discord.Colour.random()
-            await role.edit(color=r)
-            embed = discord.Embed(
-                description=f"Tu viens de changer la couleur du rôle <@&818207098877116417> pour {r}. \nTu peut rechanger la couleur du rôle <@&818207098877116417> dans 5 minutes.", color=r)
-            embed.set_author(
-                name="Rôle Rainbow", icon_url="https://media.discordapp.net/attachments/811959848921071636/822598144968884314/baa392758f065fa770e3a9063f91d33a.png")
-            await ctx.send(embed=embed)
-        else:
-            await ctx.send("> :x: Tu doit avoir le rôle **Rainbow**.\n > Pour avoir le rôle tu doit soit avoir le rôle **Addicte**, **No-EXP** ou **Nitro Booster**.\n > Si tu a un de ces rôles va dans <#796886716719562762> et tape **-role rainbow**.")
+        r = discord.Colour.random()
+        await role.edit(color=r)
+        embed = discord.Embed(
+            description=f"Tu viens de changer la couleur du rôle <@&818207098877116417> pour {r}. \nTu peut rechanger la couleur du rôle <@&818207098877116417> dans 5 minutes.", color=r)
+        embed.set_author(
+            name="Rôle Rainbow", icon_url="https://media.discordapp.net/attachments/811959848921071636/822598144968884314/baa392758f065fa770e3a9063f91d33a.png")
+        await ctx.reply(embed=embed)
+
+    @rainbow.error
+    async def rainbow_error(self, ctx, err):
+        if isinstance(err, errors.MissingAnyRole):
+            await ctx.reply(f"> :x: Tu doit avoir le rôle **Rainbow**.\n > Pour avoir le rôle tu doit soit avoir le rôle **Addicte**, **No-EXP** ou **Nitro Booster**.\n > Si tu a un de ces rôles va dans <#796886716719562762> et tape **-role rainbow**.")
 
     @commands.command(aliases=['v'])
     @permissions.has_permissions(manage_messages=True)
