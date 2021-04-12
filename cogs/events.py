@@ -17,7 +17,8 @@ class Events(commands.Cog):
     @commands.Cog.listener()
     async def on_command_error(self, ctx, err):
         if isinstance(err, errors.MissingRequiredArgument) or isinstance(err, errors.BadArgument):
-            helper = str(ctx.invoked_subcommand) if ctx.invoked_subcommand else str(ctx.command)
+            helper = str(ctx.invoked_subcommand) if ctx.invoked_subcommand else str(
+                ctx.command)
             await ctx.send_help(helper)
 
         elif isinstance(err, errors.CommandInvokeError):
@@ -35,10 +36,10 @@ class Events(commands.Cog):
             pass
 
         elif isinstance(err, errors.MaxConcurrencyReached):
-            await ctx.send("You've reached max capacity of command usage at once, please finish the previous one...")
+            await ctx.reply("You've reached max capacity of command usage at once, please finish the previous one...")
 
         elif isinstance(err, errors.CommandOnCooldown):
-            await ctx.send(f"This command is on cooldown... try again in {err.retry_after:.2f} seconds.")
+            await ctx.reply(f"This command is on cooldown... try again in {err.retry_after:.2f} seconds.")
 
         elif isinstance(err, errors.CommandNotFound):
             pass
@@ -49,7 +50,8 @@ class Events(commands.Cog):
             return
 
         try:
-            to_send = sorted([chan for chan in guild.channels if chan.permissions_for(guild.me).send_messages and isinstance(chan, discord.TextChannel)], key=lambda x: x.position)[0]
+            to_send = sorted([chan for chan in guild.channels if chan.permissions_for(
+                guild.me).send_messages and isinstance(chan, discord.TextChannel)], key=lambda x: x.position)[0]
         except IndexError:
             pass
         else:
@@ -60,7 +62,8 @@ class Events(commands.Cog):
         try:
             print(f"{ctx.guild.name} > {ctx.author} > {ctx.message.clean_content}")
         except AttributeError:
-            print(f"Private message > {ctx.author} > {ctx.message.clean_content}")
+            print(
+                f"Private message > {ctx.author} > {ctx.message.clean_content}")
 
     @commands.Cog.listener()
     async def on_ready(self):
