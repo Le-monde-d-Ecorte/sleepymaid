@@ -45,8 +45,7 @@ class Ecorte(commands.Cog):
         staffrole = ctx.guild.get_role(797650029278920714)
         if staffrole in ctx.author.roles:
             userrole = ctx.guild.get_role(614126210422800404)
-            autreligne = ctx.guild.get_role(788167400096792577)
-            await user.add_roles(userrole, autreligne, reason=f"Manually got verified by {ctx.author.name}#{ctx.author.discriminator}")
+            await user.add_roles(userrole, reason=f"Manually got verified by {ctx.author.name}#{ctx.author.discriminator}")
             await ctx.reply("> :white_check_mark: Done!", mention_author=False)
 
     @commands.command(aliases=['uv'])
@@ -57,8 +56,7 @@ class Ecorte(commands.Cog):
         staffrole = ctx.guild.get_role(797650029278920714)
         if staffrole in ctx.author.roles:
             userrole = ctx.guild.get_role(614126210422800404)
-            autreligne = ctx.guild.get_role(788167400096792577)
-            await user.remove_roles(userrole, autreligne, reason=f"Manually got un-verified by {ctx.author.name}#{ctx.author.discriminator}")
+            await user.remove_roles(userrole, reason=f"Manually got un-verified by {ctx.author.name}#{ctx.author.discriminator}")
             await ctx.reply("> :white_check_mark: Done!", mention_author=False)
 
     @commands.command()
