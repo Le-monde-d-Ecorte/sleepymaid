@@ -35,7 +35,7 @@ class Ecorte(commands.Cog):
     @rainbow.error
     async def rainbow_error(self, ctx, err):
         if isinstance(err, errors.MissingAnyRole):
-            await ctx.reply(f"> :x: Tu doit avoir le rôle **Rainbow**.\n > Pour avoir le rôle tu doit soit avoir le rôle **Addicte**, **No-EXP** ou **Nitro Booster**.\n > Si tu a un de ces rôles va dans <#796886716719562762> et tape **-role rainbow**.")
+            await ctx.reply(f"> :x: Tu doit avoir le rôle **Rainbow**.\n > Pour avoir le rôle tu doit soit avoir le rôle **Addicte**, **No-EXP** ou **Nitro Booster**.\n > Si tu a un de ces rôles va dans <#439155130924007444> et tape **-role rainbow**.")
 
     @commands.command(aliases=['v'])
     @permissions.has_permissions(manage_messages=True)
@@ -67,8 +67,8 @@ class Ecorte(commands.Cog):
         """ Se give le rôle No-EXP. """
         membrerole = ctx.guild.get_role(823227863284449352)
         noexprole = ctx.guild.get_role(823229487974055957)
-        if ctx.channel != 796886716719562762:
-            await ctx.reply("> :x: Mauvais channel. Va dans <#796886716719562762>.", mention_author=False)
+        if ctx.channel != 439155130924007444:
+            await ctx.reply("> :x: Mauvais channel. Va dans <#439155130924007444>.", mention_author=False)
         else:
             if membrerole in ctx.author.roles:
                 await ctx.author.add_roles(noexprole)
