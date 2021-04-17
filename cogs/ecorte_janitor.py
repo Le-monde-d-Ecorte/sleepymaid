@@ -182,6 +182,24 @@ class ecorte_janitor(commands.Cog):
         channel = ctx.guild.get_channel(809468282520338432)
         await channel.send(f"> **Nouveau Mois**\n> **1er Avril 2021**\n\n**Membre du mois: <@{winner.id}>**, Il obtient donc le rôle <@&817570082330378250>.\n-	Se qui donne accès a la commande ``!motm`` pour voir tous les commandes qui débloque en étant membre du mois.\n\n:small_orange_diamond: Pour être membre du mois tu doit être premier dans le leaderboard Amari. Pour voir ton rank va dans <#439155130924007444> et fait ``;rank``.")
 
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        guild = member.guild
+        if member.bot:
+            return
+        if guild.id == guild_id:
+            generalchannel = guild.get_channel(436249478521946191)
+            await generalchannel.send(f":arrow_right: {member.mention}")
+
+    @commands.Cog.listener()
+    async def on_member_remove(self, member):
+        guild = member.guild
+        if member.bot:
+            return
+        if guild.id == guild_id:
+            generalchannel = guild.get_channel(436249478521946191)
+            await generalchannel.send(f":arrow_left: {member.name}")
+
 
 def setup(bot):
     bot.add_cog(ecorte_janitor(bot))
