@@ -18,7 +18,6 @@ class banifmute(commands.Cog):
     async def on_member_remove(self, member):
         print(member.roles)
         if member.guild.id in whitelisted_guild:
-            print("Member left in a whitelisted guild")
             for index, role in enumerate(member.roles):
                 if role.name.lower() == 'muted':
                     await member.guild.ban(
