@@ -1,7 +1,8 @@
 # Custom
 config.json
 .idea/
-cogs/modlog.py
+cogs/test.py
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -105,4 +106,4 @@ ENV/
 # mypy
 .mypy_cache/
 *.ignore
-cogs/test.py
+
