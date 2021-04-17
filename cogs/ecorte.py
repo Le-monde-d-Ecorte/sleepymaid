@@ -65,7 +65,7 @@ class Ecorte(commands.Cog):
         """ Se give le rôle No-EXP. """
         membrerole = ctx.guild.get_role(823227863284449352)
         noexprole = ctx.guild.get_role(823229487974055957)
-        if ctx.channel != 439155130924007444:
+        if ctx.channel.id != 439155130924007444:
             await ctx.reply("> :x: Mauvais channel. Va dans <#439155130924007444>.", mention_author=False)
         else:
             if membrerole in ctx.author.roles:
