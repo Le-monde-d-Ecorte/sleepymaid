@@ -88,6 +88,19 @@ class Moderator(commands.Cog):
     @commands.guild_only()
     @commands.max_concurrency(1, per=commands.BucketType.user)
     @permissions.has_permissions(ban_members=True)
+    async def masskick(self, ctx, reason: ActionReason, *members: MemberID):
+        """ Mass kick multiple members from the server. """
+        try:
+            for member_id in members:
+                await ctx.guild.kick(discord.Object(id=member_id), reason=default.responsible(ctx.author, reason))
+            await ctx.send(default.actionmessage("masskicked", mass=True))
+        except Exception as e:
+            await ctx.send(e)
+
+    @commands.command()
+    @commands.guild_only()
+    @commands.max_concurrency(1, per=commands.BucketType.user)
+    @permissions.has_permissions(ban_members=True)
     async def massban(self, ctx, reason: ActionReason, *members: MemberID):
         """ Mass bans multiple members from the server. """
         try:
