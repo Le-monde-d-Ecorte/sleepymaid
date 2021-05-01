@@ -180,7 +180,7 @@ class ecorte_janitor(commands.Cog):
     @commands.check(permissions.is_owner)
     async def announce_winner(self, ctx, winner: discord.Member):
         channel = ctx.guild.get_channel(809468282520338432)
-        await channel.send(f"> **Nouveau Mois**\n> **1er Avril 2021**\n\n**Membre du mois: <@{winner.id}>**, Il obtient donc le rôle <@&817570082330378250>.\n-	Se qui donne accès a la commande ``!motm`` pour voir tous les commandes qui débloque en étant membre du mois.\n\n:small_orange_diamond: Pour être membre du mois tu doit être premier dans le leaderboard Amari. Pour voir ton rank va dans <#439155130924007444> et fait ``;rank``.")
+        await channel.send(f"> **Nouveau Mois**\n> **1er Mai 2021**\n\n**Membre du mois: <@{winner.id}>**, Il obtient donc le rôle <@&817570082330378250>.\n-	Se qui donne accès a la commande ``!motm`` pour voir tous les commandes qui débloque en étant membre du mois.\n\n:small_orange_diamond: Pour être membre du mois tu doit être premier dans le leaderboard Amari. Pour voir ton rank va dans <#439155130924007444> et fait ``;rank``.")
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
