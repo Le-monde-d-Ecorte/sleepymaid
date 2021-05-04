@@ -1,11 +1,7 @@
 import discord
 
-from utils import default
+from utils import default, lists
 from discord.ext import commands
-
-guild_id = 324284116021542922
-crown_role_id = 817570082330378250
-
 
 class ecorte_motm(commands.Cog):
     def __init__(self, bot):
@@ -21,7 +17,7 @@ class ecorte_motm(commands.Cog):
     @is_in_guild(324284116021542922)
     async def motm(self, ctx):
         """ La commande de base pour le membre du mois. """
-        crown_role = ctx.guild.get_role(crown_role_id)
+        crown_role = ctx.guild.get_role(lists.motm_role_id)
         if crown_role in ctx.author.roles:
             if ctx.invoked_subcommand is None:
                 await ctx.send_help(str(ctx.command))
@@ -33,7 +29,7 @@ class ecorte_motm(commands.Cog):
     @is_in_guild(324284116021542922)
     async def nom(self, ctx, *, name: str):
         """ Changer le nom du rôle. """
-        crown_role = ctx.guild.get_role(crown_role_id)
+        crown_role = ctx.guild.get_role(lists.motm_role_id)
         if crown_role in ctx.author.roles:
             if len(name) > 18:
                 await ctx.reply("> :x: Nom trop long.", mention_author=True)
@@ -48,7 +44,7 @@ class ecorte_motm(commands.Cog):
     @is_in_guild(324284116021542922)
     async def couleur(self, ctx, color_input: discord.Colour = None):
         """ Changer la couleur du rôle. """
-        crown_role = ctx.guild.get_role(crown_role_id)
+        crown_role = ctx.guild.get_role(lists.motm_role_id)
         if crown_role in ctx.author.roles:
             if not color_input:
                 await crown_role.edit(colour=0)

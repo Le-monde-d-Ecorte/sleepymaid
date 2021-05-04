@@ -3,10 +3,7 @@ import time
 
 from utils import default
 from discord.ext import commands
-from utils import permissions, default, http
-
-guild_id = 324284116021542922
-
+from utils import permissions, default, http, lists
 
 class ecorte_janitor(commands.Cog):
     def __init__(self, bot):
@@ -22,7 +19,7 @@ class ecorte_janitor(commands.Cog):
     async def on_member_update(self, before, after):
         guild = after.guild
         member = after
-        if guild.id != guild_id:
+        if guild.id != lists.ecorte_serverid:
             return
         if member.bot:
             return
@@ -129,7 +126,7 @@ class ecorte_janitor(commands.Cog):
         guild = member.guild
         if member.bot:
             return
-        if guild.id == guild_id:
+        if guild.id == lists.ecorte_serverid:
             generalchannel = guild.get_channel(436249478521946191)
             await generalchannel.send(f":arrow_right: {member.mention}")
 
@@ -138,7 +135,7 @@ class ecorte_janitor(commands.Cog):
         guild = member.guild
         if member.bot:
             return
-        if guild.id == guild_id:
+        if guild.id == lists.ecorte_serverid:
             generalchannel = guild.get_channel(436249478521946191)
             await generalchannel.send(f":arrow_left: {member.name}")
 

@@ -2,17 +2,7 @@ import discord
 
 from utils import default
 from discord.ext import commands
-from utils import permissions, default, http
-
-id_for_tc = {
-    1: 826987813760925756,  # sb
-    2: 811959848921071636,  # dev
-    3: 790715612799172658,  # weeb
-    4: 823893349109989421,  # discord
-    5: 778418636431949834,  # arts
-    6: 835985017988579368  # wynncraft
-}
-
+from utils import permissions, default, http, lists
 
 class ecorte_clubs(commands.Cog):
     def __init__(self, bot):
@@ -35,8 +25,8 @@ class ecorte_clubs(commands.Cog):
     @is_in_guild(324284116021542922)
     async def join(self, ctx, id: int):
         """ Rejoindre un club. """
-        if id in id_for_tc:
-            tc = ctx.guild.get_channel(id_for_tc[id])
+        if id in lists.ecorte_clubs_id_for_tc:
+            tc = ctx.guild.get_channel(lists.ecorte_clubs_id_for_tc[id])
             await tc.set_permissions(ctx.author, read_messages=True)
             if ctx.channel.id == 826987630683226152:
                 await ctx.message.delete(delay=6)
@@ -48,8 +38,8 @@ class ecorte_clubs(commands.Cog):
     @is_in_guild(324284116021542922)
     async def leave(self, ctx, id: int):
         """ Quitter un club. """
-        if id in id_for_tc:
-            tc = ctx.guild.get_channel(id_for_tc[id])
+        if id in lists.ecorte_clubs_id_for_tc:
+            tc = ctx.guild.get_channel(lists.ecorte_clubs_id_for_tc[id])
             await tc.set_permissions(ctx.author, overwrite=None)
             if ctx.channel.id == 826987630683226152:
                 await ctx.message.delete(delay=6)
