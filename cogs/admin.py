@@ -208,7 +208,7 @@ class Admin(commands.Cog):
             await ctx.send("You need to either provide an image URL or upload one with the command")
 
     @commands.command()
-    @commands.check(permissions.is_owner)
+    @permissions.has_permissions(ADMINISTRATOR=True)
     async def say(self, ctx, *, message):
         """ Say something."""
         try:
